@@ -65,3 +65,5 @@ group :test do
 end
 
 gem "haml-rails"
+gem 'active_decorator'
+gem 'active_model_serializers'
