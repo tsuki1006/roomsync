@@ -54,6 +54,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "annotate"
+  gem 'html2haml'
 end
 
 group :test do
@@ -61,3 +62,5 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+gem "haml-rails"
