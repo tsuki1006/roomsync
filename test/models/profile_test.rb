@@ -4,7 +4,7 @@
 #
 #  id           :bigint           not null, primary key
 #  comment      :string(80)
-#  course       :integer          default(0), not null
+#  course       :integer          default("unset"), not null
 #  github_url   :string
 #  introduction :text
 #  name         :string(20)       not null
