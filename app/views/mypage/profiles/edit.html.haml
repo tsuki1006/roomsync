@@ -1,1 +1,39 @@
-%p プロフィール
+= link_to '← 戻る', profile_path
+.container
+  %h2 プロフィール
+
+  %ul
+    - @profile.errors.full_messages.each do |message|
+      %li= message
+
+  = form_with(model: @profile, url: profile_path, method: 'put', local: true) do |f|
+    %div
+      = f.label :avatar, 'アバター'
+    %div
+      = f.file_field :avatar
+    %div
+      = f.label :name, '名前'
+    %div
+      = f.text_field :name
+    %div
+      = f.label :introduction, '自己紹介'
+    %div
+      = f.text_area :introduction
+    %div
+      = f.label :course, '受講コース'
+    %div
+      = f.select :course, Profile.courses.map { |k, v| [ I18n.t("enum.courses.#{k}"), k ] },{}
+    %div
+      = f.label :comment, 'つぶやき'
+    %div
+      = f.text_area :comment
+    %div
+      = f.label :x_url, 'Xアカウント'
+    %div
+      = f.text_field :x_url
+    %div
+      = f.label :github_url, 'GitHubアカウント'
+    %div
+      = f.text_field :github_url
+
+    = f.submit '保存', class: 'btn-primary'

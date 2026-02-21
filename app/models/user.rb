@@ -24,4 +24,7 @@ class User < ApplicationRecord
 
   delegate :name, :comment, :avatar, to: :profile, allow_nil: true
 
+  def prepare_profile
+    profile || build_profile
+  end
 end
