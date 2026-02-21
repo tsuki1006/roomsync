@@ -1,0 +1,7 @@
+ja:
+  enum:
+    courses:
+      unset: '未選択'
+      other: 'その他'
+      rails: 'Webアプリ開発'
+      java: 'Java'

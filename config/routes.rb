@@ -14,4 +14,9 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root to: 'home#index'
+
+  scope module: :mypage do
+    resource :profile, path: 'mypage', only: [:show, :edit, :update]
+  end
+
 end
