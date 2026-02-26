@@ -21,6 +21,7 @@ class User < ApplicationRecord
          :rememberable, :validatable
 
   has_one :profile, dependent: :destroy
+  has_many :created_rooms, foreign_key: 'creator_id', class_name: 'Room'
 
   delegate :name, :comment, :avatar, to: :profile, allow_nil: true
 

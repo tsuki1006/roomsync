@@ -1,0 +1,24 @@
+= link_to '← 戻る', :back
+.container
+  %h2 新しいルームを作成
+
+  %ul
+    - @room.errors.full_messages.each do |message|
+      %li= message
+
+  = form_with(model: @room, url: rooms_path, method: 'post', local: true) do |f|
+    %div
+      = f.label :name, 'ルーム名'
+    %div
+      = f.text_field :name
+    %div
+      = f.label :room_key, 'ルームキー（合言葉）'
+    %div
+      = f.text_field :room_key
+      %p 他のユーザーがこのルームに参加するための合言葉です
+    %div
+      = f.label :description, '説明（任意）'
+    %div
+      = f.text_area :description
+
+    = f.submit 'ルームを作成する'

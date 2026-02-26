@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
+  scope module: :apps do
+    resources :rooms, only: [ :show, :new, :create ]
+  end
+
   scope module: :mypage do
     resource :profile, path: 'mypage', only: [:show, :edit, :update]
   end
