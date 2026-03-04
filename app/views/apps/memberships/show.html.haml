@@ -1,0 +1,16 @@
+= link_to '← 戻る', :back
+.container
+  %h2 ルームに参加
+
+  = form_with(model: @room, url: room_join_path, method: 'post', local: true) do |f|
+    %div
+      = f.label :name, 'ルーム名'
+    %div
+      = f.text_field :name
+    %div
+      = f.label :room_key, 'ルームキー（合言葉）'
+    %div
+      = f.text_field :room_key
+      %p ルーム管理者から共有された合言葉を入力してください
+
+    = f.submit '参加する'
