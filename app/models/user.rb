@@ -23,6 +23,9 @@ class User < ApplicationRecord
   has_one :profile, dependent: :destroy
   has_many :created_rooms, foreign_key: 'creator_id', class_name: 'Room'
 
+  has_many :room_joining_relationships, class_name: 'UserRoom', dependent: :destroy
+  has_many :joined_rooms, through: :room_joining_relationships, source: :room
+
   delegate :name, :comment, :avatar, to: :profile, allow_nil: true
 
   def prepare_profile

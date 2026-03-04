@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   scope module: :apps do
+    resource :membership, only: [:show, :create], path: 'rooms/join', as: :room_join
     resources :rooms, only: [ :show, :new, :create ]
   end
 

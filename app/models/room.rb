@@ -23,7 +23,17 @@ class Room < ApplicationRecord
   has_secure_password :room_key
   belongs_to :creator, class_name: 'User'
 
+  has_many :joining_relationships, class_name: 'UserRoom', dependent: :destroy
+  has_many :members, through: :joining_relationships, source: :user
+
   #バリデーション
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :room_key, length: { minimum: 6 }, allow_nil: true
+
+  after_create :create_owner_relationship
+
+  private
+  def create_owner_relationship
+    UserRoom.create!(user: creator, room: self, role: 'owner')
+  end
 end

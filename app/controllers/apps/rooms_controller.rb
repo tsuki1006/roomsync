@@ -2,7 +2,6 @@ class Apps::RoomsController < Apps::ApplicationController
   before_action :set_room, only: [ :show ]
 
   def show
-    @room = Room.find(params[:id])
   end
 
   def new
@@ -29,7 +28,11 @@ class Apps::RoomsController < Apps::ApplicationController
     )
   end
 
+  private
   def set_room
-    @room = Room.find(params[:id])
+    @room = current_user.joined_rooms.find_by(id: params[:id])
+    if @room.nil?
+      redirect_to profile_path, alert: 'このルームには参加していません'
+    end
   end
 end
