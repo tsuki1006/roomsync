@@ -53,7 +53,8 @@ class Schedule < ApplicationRecord
   def duplicates_check
     return if start_time.blank? || end_time.blank?
 
-    if Schedule.where(creator_id: self.creator_id)
+    if Schedule.where.not(id: self.id)
+              .where(creator_id: self.creator_id)
               .where(room_id: self.room_id)
               .where('end_time > ? and ? > start_time', self.start_time, self.end_time).present?
       errors.add(:base, '同じ時間帯に複数の予定を作成することはできません')

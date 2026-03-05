@@ -17,6 +17,26 @@ class Apps::SchedulesController < Apps::ApplicationController
     end
   end
 
+  def edit
+    @schedule = current_user.created_schedules.find(params[:id])
+  end
+
+  def update
+    @schedule = current_user.created_schedules.find(params[:id])
+    if @schedule.update(schedule_params)
+      redirect_to room_path(@room), notice: '予定を更新しました'
+    else
+      flash.now[:error] = '予定の更新に失敗しました'
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    schedule = current_user.created_schedules.find(params[:id])
+    schedule.destroy!
+    redirect_to room_path(@room), notice: '予定を削除しました'
+  end
+
   private
   def schedule_params
     params.require(:schedule).permit(
