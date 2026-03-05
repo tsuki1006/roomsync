@@ -7,8 +7,8 @@
   .room_schedules
     - @schedules.each do |schedule|
       .schedule
-        %p= schedule.start_time
-        %p= schedule.end_time
+        %p= schedule.display_start_time
+        %p= schedule.display_end_time
         - if schedule.creator == current_user
           %button= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
         .avatar
