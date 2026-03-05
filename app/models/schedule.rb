@@ -41,14 +41,18 @@ class Schedule < ApplicationRecord
   validate :duplicates_check
 
   def start_finish_check
+    return if start_time.blank? || end_time.blank?
     errors.add(:end_time, 'は開始時間以降の時間を選択してください') if start_time > end_time
   end
 
   def start_check
+    return if start_time.blank?
     errors.add(:start_time, 'は現在の日時以降の時間を選択してください') if start_time < Time.current
   end
 
   def duplicates_check
+    return if start_time.blank? || end_time.blank?
+
     if Schedule.where(creator_id: self.creator_id)
               .where(room_id: self.room_id)
               .where('end_time > ? and ? > start_time', self.start_time, self.end_time).present?
