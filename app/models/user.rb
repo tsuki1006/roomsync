@@ -22,6 +22,7 @@ class User < ApplicationRecord
 
   has_one :profile, dependent: :destroy
   has_many :created_rooms, foreign_key: 'creator_id', class_name: 'Room'
+  has_many :created_schedules, foreign_key: 'creator_id', class_name: 'Schedule'
 
   has_many :room_joining_relationships, class_name: 'UserRoom', dependent: :destroy
   has_many :joined_rooms, through: :room_joining_relationships, source: :room

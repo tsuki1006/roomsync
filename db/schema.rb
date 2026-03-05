@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_02_26_070716) do
+ActiveRecord::Schema[7.2].define(version: 2026_03_04_080251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,20 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_26_070716) do
     t.index ["name"], name: "index_rooms_on_name", unique: true
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.bigint "creator_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.string "comment", limit: 50
+    t.integer "status", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["creator_id"], name: "index_schedules_on_creator_id"
+    t.index ["room_id"], name: "index_schedules_on_room_id"
+    t.index ["start_time"], name: "index_schedules_on_start_time"
+  end
+
   create_table "user_rooms", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
@@ -90,6 +104,8 @@ ActiveRecord::Schema[7.2].define(version: 2026_02_26_070716) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "profiles", "users"
   add_foreign_key "rooms", "users", column: "creator_id"
+  add_foreign_key "schedules", "rooms"
+  add_foreign_key "schedules", "users", column: "creator_id"
   add_foreign_key "user_rooms", "rooms"
   add_foreign_key "user_rooms", "users"
 end
