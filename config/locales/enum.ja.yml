@@ -5,3 +5,7 @@ ja:
       other: 'その他'
       rails: 'Webアプリ開発'
       java: 'Java'
+    status:
+      mokumoku: 'もくもく'
+      talking_ok: 'お話OK'
+      help_me: 'たすけて'
