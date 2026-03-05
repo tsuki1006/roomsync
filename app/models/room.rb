@@ -26,6 +26,8 @@ class Room < ApplicationRecord
   has_many :joining_relationships, class_name: 'UserRoom', dependent: :destroy
   has_many :members, through: :joining_relationships, source: :user
 
+  has_many :schedules, dependent: :destroy
+
   #バリデーション
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :room_key, length: { minimum: 6 }, allow_nil: true

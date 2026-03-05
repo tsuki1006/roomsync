@@ -1,0 +1,26 @@
+%ul
+  - schedule.errors.full_messages.each do |message|
+    %li= message
+
+= form_with(model: [ room, schedule ], local: true) do |f|
+  %div
+    = f.label :start_time, '開始日時'
+  %div
+    = f.datetime_field :start_time
+  %div
+    = f.label :end_time, '終了日時'
+  %div
+    = f.datetime_field :end_time
+  %div
+    = f.label :comment, 'コメント（任意）'
+  %div
+    = f.text_area :comment
+  %div
+    = f.label :status, 'ステータス選択'
+  %div
+    = f.select :status, Schedule.statuses.map { |k, v| [ I18n.t("enum.status.#{k}"), k ] },{}
+
+  = link_to 'キャンセル', room_path(@room)
+
+  - button_label = schedule.new_record? ? '予定を作成する' : '予定を更新する'
+  = f.submit button_label
