@@ -1,3 +1,19 @@
 .container
   %p= @room.name
   = link_to '予定を作成', new_room_schedule_path(@room)
+
+  %h2 学習予定カレンダー
+
+  .room_schedules
+    - @schedules.each do |schedule|
+      .schedule
+        %p= schedule.start_time
+        %p= schedule.end_time
+        - if schedule.creator == current_user
+          %button= link_to '編集'
+        .avatar
+          = image_tag schedule.creator.avatar
+        %p= schedule.creator.name
+        %p= schedule.comment
+        %p #{I18n.t("enum.status.#{schedule.status}")}
+        %button 一緒に参加する

@@ -2,6 +2,7 @@ class Apps::RoomsController < Apps::ApplicationController
   before_action :set_room, only: [ :show ]
 
   def show
+    @schedules = @room.schedules.includes([:creator])
   end
 
   def new
