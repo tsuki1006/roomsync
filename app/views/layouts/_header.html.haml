@@ -1,0 +1,14 @@
+%header
+  %div RoomSync
+
+  - if current_page?(edit_profile_path)
+    .page_back= link_to '← 戻る', profile_path
+
+  - elsif current_page?(new_room_path) || current_page?(room_join_path)
+    .page_back= link_to '← 戻る', my_room_path
+
+  - else
+    %ul
+      %li= link_to 'ルーム一覧', my_room_path
+      %li= link_to 'マイページ', profile_path
+      %li= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}
