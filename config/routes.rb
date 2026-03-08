@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   scope module: :apps do
     resource :membership, only: [:show, :create], path: 'rooms/join', as: :room_join
+    resource :my_room, only: [:show], path: 'myroom'
     resources :rooms, only: [ :show, :new, :create ] do
       resources :schedules
     end

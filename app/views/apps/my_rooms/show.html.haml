@@ -1,0 +1,17 @@
+.container
+  %h2 所属ルーム
+  %p ルームを選択するか、新しいルームを作成・参加してください
+
+  %button= link_to '+ 新しいルームを作成', new_room_path
+  %button= link_to 'ルームに参加', room_join_path
+
+  .rooms
+    - @room.each do |room|
+      .room
+        %p= room.name
+        %ul
+          %li
+            %p メンバー #{room.members.count}人
+          %li
+            %p 予定 #{room.schedules.active.count}件
+        %button= link_to "入室する →", room_path(room)

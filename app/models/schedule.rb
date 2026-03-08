@@ -61,4 +61,6 @@ class Schedule < ApplicationRecord
     end
   end
 
+  # スコープ
+  scope :active, -> { where('end_time > ?', Time.current) }
 end
