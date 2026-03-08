@@ -27,6 +27,9 @@ class Schedule < ApplicationRecord
   belongs_to :creator, class_name: 'User'
   belongs_to :room
 
+  has_many :participation_relationships, class_name: 'Participation', dependent: :destroy
+  has_many :participants, through: :participation_relationships, source: :user
+
   # enum
   enum :status, [ :mokumoku, :talking_ok, :help_me ], default: :mokumoku
 
