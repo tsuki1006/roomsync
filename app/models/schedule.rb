@@ -66,4 +66,9 @@ class Schedule < ApplicationRecord
 
   # スコープ
   scope :active, -> { where('end_time > ?', Time.current) }
+
+  # メソッド
+  def active?
+    Schedule.active.exists?(id: self.id)
+  end
 end

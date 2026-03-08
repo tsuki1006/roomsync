@@ -35,4 +35,16 @@ class User < ApplicationRecord
   def prepare_profile
     profile || build_profile
   end
+
+  def participate!(schedule)
+    participation_relationships.create!(schedule: schedule)
+  end
+
+  def unparticipate!(schedule)
+    participation_relationships.find_by(schedule: schedule).destroy
+  end
+
+  def has_participated?(schedule)
+    participation_relationships.exists?(schedule: schedule)
+  end
 end
