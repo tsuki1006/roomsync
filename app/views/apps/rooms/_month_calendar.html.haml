@@ -1,0 +1,3 @@
+= month_calendar events: schedules do |date, schedules|
+  = date.day
+  %div= "#{schedules.count}件の予定" if schedules.count > 0

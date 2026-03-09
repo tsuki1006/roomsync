@@ -5,21 +5,8 @@
   %h2 学習予定カレンダー
 
   .room_schedules
-    - @schedules.each do |schedule|
-      .schedule
-        %p= schedule.display_start_time
-        %p= schedule.display_end_time
-        - if schedule.creator == current_user && schedule.end_time > Time.current
-          %button= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
-        .avatar
-          = image_tag schedule.creator.avatar
-        %p= schedule.creator.name
-        %p= schedule.comment
-        %p #{I18n.t("enum.status.#{schedule.status}")}
-        %p= "#{schedule.participants.count}人参加中"
+    .schedule_calendar
+        = render 'month_calendar', schedules: @schedules
 
-        - if schedule.active? && schedule.creator != current_user
-          - if current_user.has_participated?(schedule)
-            %button= link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
-          - else
-            %button= link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}
+    .day_schedules
+        = render 'day_calendar', schedules: @schedules
