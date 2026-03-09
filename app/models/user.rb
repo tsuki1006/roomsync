@@ -27,9 +27,24 @@ class User < ApplicationRecord
   has_many :room_joining_relationships, class_name: 'UserRoom', dependent: :destroy
   has_many :joined_rooms, through: :room_joining_relationships, source: :room
 
+  has_many :participation_relationships, class_name: 'Participation', dependent: :destroy
+  has_many :participated_schedules, through: :participation_relationships, source: :schedule
+
   delegate :name, :comment, :avatar, to: :profile, allow_nil: true
 
   def prepare_profile
     profile || build_profile
+  end
+
+  def participate!(schedule)
+    participation_relationships.create!(schedule: schedule)
+  end
+
+  def unparticipate!(schedule)
+    participation_relationships.find_by(schedule: schedule).destroy
+  end
+
+  def has_participated?(schedule)
+    participation_relationships.exists?(schedule: schedule)
   end
 end

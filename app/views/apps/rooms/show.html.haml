@@ -16,4 +16,10 @@
         %p= schedule.creator.name
         %p= schedule.comment
         %p #{I18n.t("enum.status.#{schedule.status}")}
-        %button 一緒に参加する
+        %p= "#{schedule.participants.count}人参加中"
+
+        - if schedule.active? && schedule.creator != current_user
+          - if current_user.has_participated?(schedule)
+            %button= link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+          - else
+            %button= link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}
