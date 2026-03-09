@@ -1,12 +1,13 @@
 .simple-calendar
   .calendar-heading
     %time.calendar-title{:datetime => "#{start_date.strftime('%Y-%m')}"}
-      = t('date.month_names')[start_date.month]
-      = start_date.year
-    %nav
       = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view
-      = link_to t('simple_calendar.today', default: 'Today'), calendar.url_for_today_view
+      %span= l(start_date, format: :long_ym)
       = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view
+
+    %nav
+      = link_to t('simple_calendar.this_month', default: 'This month'), calendar.url_for_today_view
+
   %table.table.table-striped
     %thead
       %tr
