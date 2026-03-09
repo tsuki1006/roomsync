@@ -6,7 +6,9 @@
 
   .room_schedules
     .schedule_calendar
+      #month_calendar
         = render 'month_calendar', schedules: @schedules
 
     .day_schedules
+      #day_calendar
         = render 'day_calendar', schedules: @schedules

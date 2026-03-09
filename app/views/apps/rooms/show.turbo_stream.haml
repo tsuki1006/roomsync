@@ -1,0 +1,7 @@
+= turbo_stream.replace "month_calendar" do
+  #month_calendar
+    = render 'month_calendar', schedules: @schedules
+
+= turbo_stream.replace "day_calendar" do
+  #day_calendar
+    = render 'day_calendar', schedules: @schedules
