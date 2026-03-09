@@ -1,0 +1,21 @@
+.simple-calendar
+  .calendar-heading
+    %time.calendar-title{:datetime => "#{start_date.strftime('%Y-%m')}"}
+      = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, data: { turbo_stream: true }
+      %span= l(start_date, format: :long_ym)
+      = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, data: { turbo_stream: true }
+
+    %nav
+      = link_to t('simple_calendar.this_month', default: 'This month'), calendar.url_for_today_view, data: { turbo_stream: true }
+
+  %table.table.table-striped
+    %thead
+      %tr
+        - date_range.slice(0, 7).each do |day|
+          %th= t('date.abbr_day_names')[day.wday]
+    %tbody
+      - date_range.each_slice(7) do |week|
+        %tr
+          - week.each do |day|
+            = content_tag :td, class: calendar.td_classes_for(day) do
+              - instance_exec(day, calendar.sorted_events_for(day), &passed_block)

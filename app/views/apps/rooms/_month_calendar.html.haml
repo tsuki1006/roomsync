@@ -1,0 +1,5 @@
+= month_calendar events: schedules do |date, schedules|
+
+  = link_to url_for(start_date: date, about: date), data: { turbo_stream: true } do
+    = date.day
+    %div= "#{schedules.count}件の予定" if schedules.count > 0
