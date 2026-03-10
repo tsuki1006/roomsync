@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  root to: 'home#index'
+  root to: 'home#show'
 
   scope module: :apps do
     resource :membership, only: [:show, :create], path: 'rooms/join', as: :room_join
