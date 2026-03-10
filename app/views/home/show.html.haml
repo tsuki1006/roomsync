@@ -1,0 +1,25 @@
+.container
+  %h1 Roomsync
+
+  %p 学習予定を共有して、同じタイミングで学ぶ仲間を見つける
+
+  .top_action
+    %button= link_to 'ログイン', new_user_session_path
+    %div
+      %span または
+    %button= link_to '新規登録', new_user_registration_path
+
+  .top_points
+    %ul
+      %li
+        %div
+          %span ✨
+        %div
+          %p 学習室の利用予定を可視化
+          %p カレンダーで誰がいつ学習するか一目で分かる
+      %li
+        %div
+          %span 🤝
+        %div
+          %p 簡単アクションで予定に参加
+          %p 「一緒に参加」ボタンをクリックするだけ

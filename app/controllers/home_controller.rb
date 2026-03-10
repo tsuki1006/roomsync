@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
-  def index
+  def show
+    redirect_to profile_path if user_signed_in?
   end
 end
