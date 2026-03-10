@@ -15,7 +15,7 @@
             - if schedule.creator == current_user
               %span= "👥 #{schedule.participants.count}人参加中"
             - else
-              = image_tag schedule.creator.avatar
+              = image_tag schedule.creator.avatar_image
               %span= schedule.creator.name
               %span= "| 👥 #{schedule.participants.count}人参加中"
 
