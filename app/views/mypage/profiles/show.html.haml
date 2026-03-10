@@ -1,15 +1,3 @@
 .container
-  %h2 マイページ
-  = link_to 'プロフィール編集', edit_profile_path
-
-  .profile
-    - if @profile
-      = image_tag @profile.avatar
-      %p= @profile.name
-      %p= @profile.introduction
-      %p #{I18n.t("enum.courses.#{@profile.course}")}
-      %p= @profile.comment
-      %p= link_to 'X', @profile.x_url, target: '_blank'
-      %p= link_to 'Github', @profile.github_url, target: '_blank'
-    -else
-      %p 🖊️プロフィールを作成してください
+  = render 'common/profile', profile: @profile
+  = render 'common/mypage_tab'

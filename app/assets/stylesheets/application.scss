@@ -21,3 +21,10 @@ img {
   width: 80px;
   height: 100%;
 }
+
+nav {
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+}
