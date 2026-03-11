@@ -10,7 +10,7 @@
           %button= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
 
         .avatar
-          = image_tag schedule.creator.avatar
+          = image_tag schedule.creator.avatar_image
         %p= schedule.creator.name
         %p= schedule.comment
         %p #{I18n.t("enum.status.#{schedule.status}")}

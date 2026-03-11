@@ -1,0 +1,15 @@
+.profile
+  - if profile
+    = link_to 'プロフィール編集', edit_profile_path
+
+    %div= image_tag profile.user.avatar_image
+    %p= profile.name
+    %p= profile.introduction
+    %p #{I18n.t("enum.courses.#{profile.course}")}
+    %p= profile.comment
+    %p= link_to 'X', profile.x_url, target: '_blank'
+    %p= link_to 'Github', profile.github_url, target: '_blank'
+
+  -else
+    = link_to 'プロフィール作成', edit_profile_path
+    %p 🖊️プロフィールを作成してください

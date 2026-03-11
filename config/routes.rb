@@ -29,7 +29,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :mypage do
-    resource :profile, path: 'mypage', only: [:show, :edit, :update]
+    resource :profile, path: 'mypage', only: [:show, :edit, :update] do
+      resources :created_schedules, path: 'created', only: [:index]
+      resources :participated_schedules, path: 'participated', only: [:index]
+    end
   end
 
 end

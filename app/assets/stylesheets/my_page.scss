@@ -1,0 +1,13 @@
+// mypage
+
+.my_page_schedule {
+  .schedule {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .schedule_time {
+    display: flex;
+    gap: 20px;
+  }
+}

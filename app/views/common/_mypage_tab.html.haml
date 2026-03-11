@@ -1,0 +1,12 @@
+.mypage_tab
+  %nav
+    %ul
+      %li= link_to '通知', profile_path
+      %li
+        = link_to profile_created_schedules_path do
+          %span 作成した予定
+          %span= active_created_schedule_count(current_user)
+      %li
+        = link_to profile_participated_schedules_path do
+          %span 参加した予定
+          %span= active_participated_schedule_count(current_user)

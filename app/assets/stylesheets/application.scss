@@ -1,6 +1,7 @@
 @use 'simple_calendar';
 @use 'header';
 @use 'app_top';
+@use 'my_page';
 @use 'room_home';
 
 body {
@@ -20,4 +21,11 @@ ul {
 img {
   width: 80px;
   height: 100%;
+}
+
+nav {
+  ul {
+    display: flex;
+    gap: 20px;
+  }
 }

@@ -1,0 +1,31 @@
+.my_page_schedule
+
+  - if schedules.present?
+    - schedules.each do |schedule|
+      .schedule
+        = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date) do
+          .schedule_content
+            .schedule_time
+              %div
+                %span= schedule.display_start_time
+                %span= ' - '
+                %span= schedule.display_end_time
+              %div= schedule.display_date
+              %div= schedule.room.name
+
+            %div
+              - if schedule.creator == current_user
+                %span= "👥 #{schedule.participants.count}人参加中"
+              - else
+                = image_tag schedule.creator.avatar_image
+                %span= schedule.creator.name
+                %span= "| 👥 #{schedule.participants.count}人参加中"
+
+          .schedule_action
+            - if schedule.creator == current_user
+              %button= link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule)
+
+            - else
+              %button= link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+  - else
+    %p 現在予定はありません 🌱

@@ -20,7 +20,7 @@
   %div
     = f.select :status, Schedule.statuses.map { |k, v| [ I18n.t("enum.status.#{k}"), k ] },{}
 
-  = link_to 'キャンセル', room_path(@room)
+  = link_to 'キャンセル', :back
 
   - button_label = schedule.new_record? ? '予定を作成する' : '予定を更新する'
   = f.submit button_label
