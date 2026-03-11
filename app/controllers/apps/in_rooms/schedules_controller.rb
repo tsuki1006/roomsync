@@ -1,4 +1,5 @@
 class Apps::InRooms::SchedulesController < Apps::InRooms::ApplicationController
+  before_action :profile_check, only: [:new]
 
   def new
     @schedule = current_user.created_schedules.build(room: @room)
@@ -44,5 +45,11 @@ class Apps::InRooms::SchedulesController < Apps::InRooms::ApplicationController
       :status,
       :comment
     )
+  end
+
+  def profile_check
+    if current_user.profile.nil?
+      redirect_back fallback_location: profile_path, notice: '予定を作成するにはプロフィールの作成が必要です'
+    end
   end
 end
