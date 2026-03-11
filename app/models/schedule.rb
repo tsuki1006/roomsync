@@ -41,6 +41,7 @@ class Schedule < ApplicationRecord
 
   validate :start_finish_check
   validate :start_check
+  validate :less_than_24h_check
   validate :duplicates_check
 
   def start_finish_check
@@ -51,6 +52,12 @@ class Schedule < ApplicationRecord
   def start_check
     return if start_time.blank?
     errors.add(:start_time, 'は現在の日時以降の時間を選択してください') if start_time < Time.current
+  end
+
+  def less_than_24h_check
+    return if start_time.blank? || end_time.blank?
+    seconds_per_day = 60*60*24
+    errors.add(:end_time, 'は開始から24h以内に設定してください') if end_time - start_time > seconds_per_day
   end
 
   def duplicates_check
