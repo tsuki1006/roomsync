@@ -1,0 +1,27 @@
+// ベース
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  width: 80px;
+  height: 100%;
+}
+
+nav {
+  ul {
+    display: flex;
+    gap: 20px;
+  }
+}
