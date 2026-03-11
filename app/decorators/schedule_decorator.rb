@@ -9,6 +9,12 @@ module ScheduleDecorator
     I18n.l(self.end_time.time, format: :short)
   end
 
+  def display_next_day
+    unless start_time.to_date == end_time.to_date
+      '翌'
+    end
+  end
+
   def display_date
     start_day = self.start_time.to_date
     end_day = self.end_time.to_date

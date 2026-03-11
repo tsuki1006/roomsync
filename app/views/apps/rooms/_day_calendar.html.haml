@@ -4,7 +4,9 @@
     - schedules.each do |schedule|
       .schedule
         %p= schedule.display_start_time
-        %p= schedule.display_end_time
+        %p
+          %span= schedule.display_next_day
+          = schedule.display_end_time
 
         - if schedule.creator == current_user && schedule.end_time > Time.current
           %button= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
