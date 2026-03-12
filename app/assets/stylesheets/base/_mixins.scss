@@ -1,0 +1,48 @@
+// mixin
+@use 'base/variables' as var;
+
+// アプリロゴ
+@mixin app_icon($font-size: 18px) {
+  width: calc(1.78 * $font-size);
+  height: calc(1.78 * $font-size);
+  font-size: $font-size;
+  font-weight: var.$font-bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var.$radius;
+  background: var.$gradient-primary;
+}
+
+@mixin app_logo($font-size: 24px) {
+  margin: 0;
+  padding-bottom: calc(0.21 * $font-size);
+  display: inline-block;
+  font-size: $font-size;
+  font-weight: var.$font-bold;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var.$color-primary;
+  background: var.$gradient-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin white_container {
+  background: var.$color-white;
+  border-radius: 12px;
+  padding: 2rem;
+  border: var.$border-default;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@mixin flash($color-1, $color-2) {
+  color: $color-1;
+  border: 1px solid $color-1;
+
+  .flash_icon {
+    color: white;
+    background: linear-gradient(135deg, $color-1 0%, $color-2 100%);
+  }
+}

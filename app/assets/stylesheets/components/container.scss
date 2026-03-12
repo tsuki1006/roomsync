@@ -1,0 +1,6 @@
+// container
+@use 'base/mixins' as mix;
+
+.white_container {
+  @include mix.white_container;
+}

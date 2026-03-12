@@ -1,14 +1,20 @@
 %header
-  %div RoomSync
+  .header_container
+    .header_left
+      .logo
+        .app_icon R
+        .app_logo RoomSync
+      = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}, class: 'logout'
 
-  - if current_page?(edit_profile_path)
-    .page_back= link_to '← 戻る', profile_path
 
-  - elsif current_page?(new_room_path) || current_page?(room_join_path)
-    .page_back= link_to '← 戻る', my_room_path
+    - if current_page?(edit_profile_path)
+      .page_back= link_to '← 戻る', profile_path
 
-  - else
-    %ul
-      %li= link_to 'ルーム一覧', my_room_path
-      %li= link_to 'マイページ', profile_path
-      %li= link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}
+    - elsif current_page?(new_room_path) || current_page?(room_join_path)
+      .page_back= link_to '← 戻る', my_room_path
+
+    - else
+      %nav
+        %ul
+          %li= link_to 'ルーム一覧', my_room_path, class: 'header_nav_link'
+          %li= link_to 'マイページ', profile_path, class: 'header_nav_link'

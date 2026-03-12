@@ -1,0 +1,84 @@
+// flash
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+.flash {
+  position: absolute;
+  top: 7%;
+  right: 3%;
+  padding: 0.8rem 1rem;
+  font-size: var.$font-sm;
+  font-weight: var.$font-medium;
+  border-radius: var.$radius;
+  background: var.$color-white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  visibility: hidden;
+  z-index: 1;
+  -webkit-animation: fade-in-out;
+  animation: fade-in-out;
+  animation-duration: 5s;
+}
+
+.flash_content {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.flash_icon {
+  width: 17px;
+  height: 17px;
+  font-size: 9px;
+  font-weight: var.$font-bold;
+  color: var.$color-white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flash_notice {
+  @include mix.flash(#667eea, #764ba2)
+}
+
+.flash_alert {
+  @include mix.flash(#f59e0b, #ff951d)
+}
+
+.flash_error {
+  @include mix.flash(#e35757, #cc4949)
+}
+
+@-webkit-keyframes fade-in-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in-out {
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

@@ -1,0 +1,11 @@
+// ロゴ
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+.app_icon {
+  @include mix.app_icon;
+}
+
+.app_logo {
+  @include mix.app_logo;
+}

@@ -1,0 +1,63 @@
+// header
+@use 'base/variables' as var;
+
+header {
+  position: sticky;
+  padding: 0.7rem 2rem;
+  font-weight: var.$font-medium;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-bottom: var.$border-default;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+}
+
+.header_container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .header_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logout {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-size: 13px;
+    color: var.$color-t-gray;
+    border: var.$border-gray;
+    border-radius: var.$radius;
+  }
+
+  ul {
+    gap: 30px;
+  }
+
+  .header_nav_link {
+    color: var.$color-t-gray;
+    font-weight: var.$font-medium;
+    font-size: var.$font-md;
+  }
+
+  .page_back {
+    border: var.$border-gray;
+    border-radius: var.$radius;
+    font-size: 13px;
+    padding: 0.7rem 1rem;
+
+    a {
+      color: var.$color-t-gray;
+    }
+  }
+}

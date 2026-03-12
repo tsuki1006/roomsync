@@ -1,0 +1,31 @@
+// 変数
+
+// Colors - Primary
+$color-primary: #667eea;
+$color-secondary: #764ba2;
+$color-white: #ffffff;
+
+// Colors - Text
+$color-t-primary: #1a1a1a;
+$color-t-secondary: #333;
+$color-t-gray: #666;
+
+// Gradient
+$gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+// Border
+$border-default: 1px solid rgba(0, 0, 0, 0.06);
+$border-gray: 1px solid #e0e0e0;
+
+$radius: 8px;
+
+// Font Sizes
+$font-base: 12px;
+$font-sm: 11px;
+$font-md: 15px;
+$font-lg: 16px;
+
+// Font Weights
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
