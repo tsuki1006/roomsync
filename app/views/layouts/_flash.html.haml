@@ -1,0 +1,7 @@
+- if flash.present?
+  - flash.each do |key, value|
+
+    .flash{ class: "flash_#{key}" }
+      .flash_content
+        .flash_icon= flash_icon(key)
+        .flash_text= value

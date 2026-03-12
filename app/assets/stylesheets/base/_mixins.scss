@@ -28,3 +28,21 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+@mixin white_container {
+  background: var.$color-white;
+  border-radius: 12px;
+  padding: 2rem;
+  border: var.$border-default;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@mixin flash($color-1, $color-2) {
+  color: $color-1;
+  border: 1px solid $color-1;
+
+  .flash_icon {
+    color: white;
+    background: linear-gradient(135deg, $color-1 0%, $color-2 100%);
+  }
+}

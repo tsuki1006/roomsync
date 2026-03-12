@@ -21,8 +21,6 @@
     - if user_signed_in?
       = render 'layouts/header'
 
-    - if flash.present?
-      .flash
-        - flash.each do |key, value|
-          %div{class: "flash_#{key}"}= value
-    = yield
+    %main
+      = render 'layouts/flash'
+      = yield
