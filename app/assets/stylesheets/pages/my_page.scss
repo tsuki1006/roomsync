@@ -1,13 +1,325 @@
 // mypage
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
 
+// コンテナ
+.profile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100px;
+}
+
+.mypage_tab {
+  margin-top: 2rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.mypage_selected_contents {
+  margin-top: 0.5rem;
+  min-height: 400px;
+}
+
+// プロフィール
+.profile {
+  &_edit {
+    position: absolute;
+    right: 2rem;
+    @include mix.button_normal;
+  }
+
+  &_contents_1 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+  }
+
+  &_avatar {
+    @include mix.avatar(75px);
+  }
+
+  &_name_course {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 11px;
+  }
+
+  &_name {
+    font-size: 25px;
+    font-weight: bold;
+    color: var.$color-t-primary;
+  }
+
+  &_course {
+    width: fit-content;
+    padding: 0.35rem 0.75rem;
+    color: var.$color-primary;
+    font-size: 0.8rem;
+    font-weight: var.$font-medium;
+    border-radius: var.$radius;
+    background-color: var.$color-tag;
+  }
+
+  &_contents_2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 20px;
+  }
+
+  &_comment {
+    width: fit-content;
+    padding: 0.4rem 1rem;
+    border: var.$border-purple;
+    border-radius: 30px;
+    background-color: var.$color-purple-thin;
+
+    p {
+      font-size: var.$font-md;
+      color: var.$color-t-secondary;
+      line-height: 1.6;
+    }
+  }
+
+  &_sns_logo {
+    margin-right: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: end;
+    gap: 10px;
+  }
+
+  .sns_logo {
+    width: 20px;
+    height: 20px;
+
+    img {
+      width: inherit;
+      height: 100%;
+    }
+  }
+
+  .x_logo {
+    width: 18px;
+    height: 18px;
+  }
+
+  &_introduction {
+    width: 100%;
+    padding: 1.25rem;
+    border-radius: var.$radius;
+    border: var.$border-purple;
+    background-color: var.$color-purple-thin;
+
+    .label {
+      color: var.$color-primary;
+      font-size: var.$font-base;
+      font-weight: var.$font-bold;
+      letter-spacing: 0.05px;
+    }
+
+    .text {
+      margin-top: 0.3rem;
+      color: var.$color-t-secondary;
+      font-size: var.$font-md;
+      line-height: 1.6;
+    }
+  }
+
+  .profile_none {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var.$color-t-secondary;
+    font-size: var.$font-md;
+    font-weight: var.$font-medium;
+
+    .profile_create {
+      @include mix.button_normal;
+    }
+  }
+}
+
+// ナビゲーションタブ
+.mypage_tab {
+
+  ul {
+    gap: 2rem;
+  }
+
+  &_list {
+    padding: 0.75rem 0;
+    margin-bottom: -2px;
+    font-size: var.$font-md;
+    font-weight: var.$font-medium;
+
+    &.active {
+      border-bottom: 2px solid var.$color-primary;
+
+      a {
+        color: var.$color-primary;
+      }
+
+      .mypage_tab_count {
+        background-color: var.$color-primary;
+        color: var.$color-white;
+      }
+    }
+  }
+
+  a {
+    color: var.$color-t-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  &_count {
+    padding: 0.25rem 0.5rem;
+    color: var.$color-t-gray;
+    font-size: var.$font-base;
+    font-weight: var.$font-bold;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+  }
+
+}
+
+// 選択コンテンツ
+.mypage_selected_contents {
+  .content_box {
+    padding: 1.25rem;
+    color: var.$color-t-primary;
+    font-size: var.$font-md;
+    font-weight: var.$font-medium;
+    border: var.$border-gray;
+    border-radius: 10px;
+    background-color: var.$color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+      border: var.$border-purple;
+      background-color: var.$color-purple-thin;
+    }
+
+    &.none {
+      padding: 2rem;
+      justify-content: start;
+    }
+
+    .none_message {
+      color: var.$color-t-secondary;
+    }
+  }
+
+  .content_box + .content_box {
+    margin-top: 0.8rem;
+  }
+}
+
+// スケジュール一覧
 .my_page_schedule {
+
   .schedule {
+    position: relative;
     display: flex;
     justify-content: space-between;
   }
 
-  .schedule_time {
+  .schedule_content {
+    color: #888;
+    font-size: 0.85rem;
+    font-weight: var.$font-medium;
     display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 1rem;
+  }
+
+  .schedule_time_date {
+    display: flex;
+    align-items: center;
     gap: 20px;
+
+    .schedule_time {
+      font-size: 1.25rem;
+      font-weight: var.$font-extrabold;
+      line-height: 1;
+      background: var.$gradient-primary;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: end;
+
+      .next_day {
+        font-size: 0.8rem;
+      }
+    }
+
+    .schedule_date {
+      padding-top: 2px;
+    }
+  }
+
+  .schedule_participants {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+
+    &.active {
+      color: var.$color-primary;
+    }
+
+    &_icon {
+      font-size: var.$font-md;
+      display: block;
+      padding-bottom: 3px;
+    }
+  }
+
+  .schedule_creator_participants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .schedule_creator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .schedule_avatar {
+    @include mix.avatar(21px)
+  }
+
+  .schedule_room {
+    // margin-top: 7px;
+    padding: .25rem .5rem;
+    color: #959595;
+    font-size: var.$font-base;
+    font-weight: var.$font-semibold;
+    border-radius: 10px;
+    background-color: #ededed;
+  }
+  .schedule_edit {
+    @include mix.button_normal(0.8rem);
+  }
+
+  .schedule_cancel {
+    @include mix.button_normal(0.8rem);
+    border: 1px solid #ffcccb;
+
+    a {
+      color: #dc3545;
+    }
   }
 }

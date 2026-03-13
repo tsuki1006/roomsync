@@ -46,3 +46,30 @@
     background: linear-gradient(135deg, $color-1 0%, $color-2 100%);
   }
 }
+
+@mixin avatar($size) {
+  width: $size;
+  height: $size;
+  border: var.$border-purple-dark;
+  border-radius: 20%;
+  overflow: hidden;
+
+  img {
+    width: inherit;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+@mixin button_normal($font-size: var.$font-md) {
+  padding: 0.6rem 1rem;
+  font-size: $font-size;
+  font-weight: var.$font-medium;
+  border: var.$border-gray;
+  border-radius: var.$radius;
+  background-color: var.$color-white;
+
+  a {
+    color: #444;
+  }
+}
