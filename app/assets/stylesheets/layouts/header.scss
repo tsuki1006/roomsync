@@ -2,10 +2,12 @@
 @use 'base/variables' as var;
 
 header {
+  z-index: 100;
   position: sticky;
+  top: 0;
   padding: 0.7rem 2rem;
   font-weight: var.$font-medium;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.9);
   border-bottom: var.$border-default;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
 }
