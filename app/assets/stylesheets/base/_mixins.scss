@@ -73,3 +73,12 @@
     color: #444;
   }
 }
+
+@mixin button_primary {
+  @include button_normal;
+  padding: 0.8rem 1rem;
+  font-size: 15px;
+  background: var.$gradient-primary;
+  color: var.$color-white;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+}

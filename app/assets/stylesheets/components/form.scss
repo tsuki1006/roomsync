@@ -1,0 +1,112 @@
+// フォーム
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+// エラー部分
+.form_error {
+  padding-left: 1rem;
+
+  .form_error_message {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+    list-style: inside;
+  }
+
+  .form_error_message:first-child {
+    padding-top: 2rem;
+  }
+}
+
+// フォーム部分
+.form_contents {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 2rem;
+}
+
+.form_item {
+  width: stretch;
+}
+
+// ラベル
+.form_label {
+  display: flex;
+  font-size: var.$font-md;
+  font-weight: var.$font-bold;
+  color: var.$color-t-primary;
+  margin-bottom: 9px;
+}
+
+.required {
+  color: #dc3545;
+}
+
+// input
+.form_input {
+  width: 100%;
+  padding: 0.9rem;
+  border-radius: var.$radius;
+  border: var.$border-gray;
+  font-size: var.$font-lg;
+  font-family: inherit;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var.$color-primary;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  }
+
+  &::placeholder {
+    color: #888;
+  }
+}
+
+.form_textarea {
+  @extend .form_input;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form_select {
+  @extend .form_input;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+}
+
+.form_file {
+  font-size: var.$font-md;
+  color: gray;
+  width: stretch;
+
+  &::file-selector-button {
+    background-color: #fff;
+    padding: 0.5rem 1rem;
+    margin-right: 1rem;
+    border-radius: var.$radius;
+    border: var.$border-gray;
+    line-height: 1.5;
+    transition: all 0.2s ease;
+
+    &:focus {
+      outline: none;
+      border-color: var.$color-primary;
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+  }
+}
+
+// ボタン部分
+.form_action {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.form_button {
+  @include mix.button_primary;
+  width: 180px;
+}
