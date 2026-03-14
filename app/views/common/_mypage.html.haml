@@ -1,0 +1,33 @@
+.white_container.profile
+  - if profile
+    %button.profile_edit
+      = link_to 'プロフィール編集', edit_profile_path
+
+    .profile_contents_1
+      .profile_avatar= image_tag profile.user.avatar_image
+      .profile_name_course
+        .profile_name= profile.name
+        .profile_course= I18n.t("enum.courses.#{profile.course}")
+
+    .profile_contents_2
+      .profile_comment
+        %p= "🗨️ #{profile.comment}"
+      .profile_sns_logo
+        .sns_logo.x_logo
+          = link_to profile.x_url, target: '_blank' do
+            = image_tag 'x_logo.svg'
+        .sns_logo.github_logo
+          = link_to profile.github_url, target: '_blank' do
+            = image_tag 'github_logo.svg'
+
+    .profile_introduction
+      .label 自己紹介
+      %p.text= profile.introduction
+
+  -else
+    .profile_none
+      %div 🖊️プロフィールを作成してください
+      %button.profile_create
+        = link_to 'プロフィール作成', edit_profile_path
+
+= render 'common/mypage_tab'

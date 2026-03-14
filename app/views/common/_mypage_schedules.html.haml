@@ -1,32 +1,40 @@
-.my_page_schedule
+.white_container.mypage_selected_contents
+  .my_page_schedule
 
-  - if schedules.present?
-    - schedules.each do |schedule|
-      .schedule
-        = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date) do
-          .schedule_content
-            .schedule_time
-              %div
-                %span= schedule.display_start_time
-                %span= ' - '
-                %span= schedule.display_next_day
-                %span= schedule.display_end_time
-              %div= schedule.display_date
-              %div= schedule.room.name
+    - if schedules.present?
+      - schedules.each do |schedule|
+        .content_box.schedule
+          = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date) do
+            .schedule_content
+              .schedule_time_date
+                .schedule_time
+                  %span= schedule.display_start_time
+                  %span -
+                  %span.next_day= schedule.display_next_day
+                  %span= schedule.display_end_time
+                .schedule_date= schedule.display_date
 
-            %div
+              .schedule_creator_participants
+                - count = schedule.participants.count
+                - if schedule.creator == current_user
+                  .schedule_participants{ class: count > 0 ? 'active' : nil }
+                    .schedule_participants_icon 👥
+                    %div= "#{count}人参加中"
+                - else
+                  .schedule_creator
+                    .schedule_avatar= image_tag schedule.creator.avatar_image
+                    %span= schedule.creator.name
+                  %span.schedule_participants{ class: count > 0 ? 'active' : nil }
+                    .schedule_participants_icon 👥
+                    %div= "#{count}人参加中"
+                .schedule_room= schedule.room.name
+
+            .schedule_action
               - if schedule.creator == current_user
-                %span= "👥 #{schedule.participants.count}人参加中"
+                %button.schedule_edit= link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule)
+
               - else
-                = image_tag schedule.creator.avatar_image
-                %span= schedule.creator.name
-                %span= "| 👥 #{schedule.participants.count}人参加中"
-
-          .schedule_action
-            - if schedule.creator == current_user
-              %button= link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule)
-
-            - else
-              %button= link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
-  - else
-    %p 現在予定はありません 🌱
+                %button.schedule_cancel= link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+    - else
+      .content_box.active.none
+        .none_message 🌱 現在予定はありません

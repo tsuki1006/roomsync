@@ -1,12 +1,17 @@
-.mypage_tab
+.white_container.mypage_tab
   %nav
     %ul
-      %li= link_to '通知', profile_path
-      %li
+      %li.mypage_tab_list{class: "#{add_active_class(profile_path)}"}
+        = link_to '通知', profile_path
+
+      %li.mypage_tab_list{class: "#{add_active_class(profile_created_schedules_path)}"}
         = link_to profile_created_schedules_path do
           %span 作成した予定
-          %span= active_created_schedule_count(current_user)
-      %li
+          - if (count = active_created_schedule_count(current_user))
+            %span.mypage_tab_count= count
+
+      %li.mypage_tab_list{class: "#{add_active_class(profile_participated_schedules_path)}"}
         = link_to profile_participated_schedules_path do
           %span 参加した予定
-          %span= active_participated_schedule_count(current_user)
+          - if (count = active_participated_schedule_count(current_user))
+            %span.mypage_tab_count= count

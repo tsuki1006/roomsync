@@ -1,0 +1,15 @@
+// ページタイトル
+@use 'base/variables' as var;
+
+.page_title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  .h2_accent {
+    width: 6px;
+    height: 32px;
+    background: var.$gradient-primary;
+    border-radius: 3px;
+  }
+}

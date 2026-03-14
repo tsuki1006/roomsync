@@ -4,11 +4,18 @@
 $color-primary: #667eea;
 $color-secondary: #764ba2;
 $color-white: #ffffff;
+$color-purple-thin: rgba(102, 126, 234, 0.05);
 
 // Colors - Text
 $color-t-primary: #1a1a1a;
 $color-t-secondary: #333;
 $color-t-gray: #666;
+
+// Colors - Button link text
+$color-t-btn: #444;
+
+// Colors - Tag
+$color-tag: rgba(102, 126, 234, 0.1);
 
 // Gradient
 $gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -16,6 +23,8 @@ $gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
 // Border
 $border-default: 1px solid rgba(0, 0, 0, 0.06);
 $border-gray: 1px solid #e0e0e0;
+$border-purple: 1px solid rgba(102, 126, 234, 0.1);
+$border-purple-dark: 1px solid rgba(102, 126, 234, 0.4);
 
 $radius: 8px;
 
@@ -28,4 +37,6 @@ $font-lg: 16px;
 // Font Weights
 $font-regular: 400;
 $font-medium: 500;
+$font-semibold: 600;
 $font-bold: 700;
+$font-extrabold: 800;

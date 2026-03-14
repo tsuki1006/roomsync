@@ -4,3 +4,13 @@
 .white_container {
   @include mix.white_container;
 }
+
+.form_page_container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.form_container {
+  margin-top: 2rem;
+}

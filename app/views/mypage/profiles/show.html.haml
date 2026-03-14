@@ -1,5 +1,6 @@
-.container.white_container
-  = render 'common/profile', profile: @profile
-  = render 'common/mypage_tab'
+.mypage_container
+  = render 'common/mypage', profile: @profile
 
-  %div 📢 通知機能は実装予定です
+  .white_container.mypage_selected_contents
+    .content_box.active.none
+      .none_message 📢 通知機能は実装予定です
