@@ -2,13 +2,44 @@
 @use 'base/variables' as var;
 @use 'base/mixins' as mix;
 
+// フォームタブ
+.form_tab {
+  padding: 0.5rem;
+}
+
+.form_tab_list {
+  display: flex;
+  gap: 0;
+}
+
+.form_tab_item {
+  text-align: center;
+  width: 100%;
+  padding: 1rem 0;
+  font-size: var.$font-lg;
+  font-weight: var.$font-semibold;
+
+  a {
+    color: var.$color-t-gray-thin;
+  }
+
+  &.active {
+    border-radius: 10px;
+    background: var.$gradient-primary;
+
+    a {
+      color: var.$color-white;
+    }
+  }
+}
+
 // エラー部分
 .form_error {
   padding-left: 1rem;
 
   .form_error_message {
-    font-size: 15px;
-    color: #666;
+    font-size: var.$font-md;
+    color: var.$color-t-gray;
     line-height: 1.8;
     list-style: inside;
   }
@@ -43,6 +74,13 @@
   color: #dc3545;
 }
 
+// 補足コメント
+.form_comment {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var.$color-t-gray-thin;
+}
+
 // input
 .form_input {
   width: 100%;
@@ -61,7 +99,7 @@
   }
 
   &::placeholder {
-    color: #888;
+    color: var.$color-t-gray-thin;
   }
 }
 

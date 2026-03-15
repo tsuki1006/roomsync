@@ -1,0 +1,113 @@
+// 所属ルーム一覧
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+.my_room_container {
+  margin-top: 1rem;
+}
+
+.my_room_title {
+  p {
+    margin-top: 1rem;
+    color: var.$color-t-gray;
+    font-size: var.$font-md;
+    font-weight: var.$font-regular;
+  }
+}
+
+.room_button_section {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+}
+
+.new_room_button {
+  @include mix.button_primary;
+  padding: 1rem 2rem;
+  font-weight: var.$font-bold;
+}
+
+.join_room_button {
+  @include mix.button_secondary;
+  padding: 0.95rem 2.2rem;
+  font-weight: var.$font-bold;
+}
+
+.room_section {
+  margin-top: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.room_cards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+
+.room_name {
+  width: 100%;
+  font-size: 20px;
+  font-weight: var.$font-bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.room_counts {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1.5rem;
+
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 0.25rem;
+  }
+
+  .room_count_label {
+    font-size: 13px;
+    color: var.$color-t-gray-thin;
+  }
+
+  .room_count {
+    color: var.$color-primary;
+    font-size: 20px;
+    font-weight: var.$font-bold;
+  }
+
+}
+
+.room_in_button {
+  @include mix.button_primary;
+  margin-top: 0.2rem;
+  width: 100%;
+  padding: 0.75rem;
+  box-shadow: none;
+}
+
+.no_room_content {
+  margin-top: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var.$color-t-gray;
+
+  h3 {
+    font-size: 23px;
+    font-weight: var.$font-medium;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    font-size: var.$font-md;
+  }
+}

@@ -1,17 +1,32 @@
-.container
-  %h2 所属ルーム
-  %p ルームを選択するか、新しいルームを作成・参加してください
+- if @room.present?
+  .my_room_container
+    %h2.my_room_title
+      %div 所属ルーム
+      %p ルームを選択するか、新しいルームを作成・参加してください
 
-  %button= link_to '+ 新しいルームを作成', new_room_path
-  %button= link_to 'ルームに参加', room_join_path
+    %section.room_button_section
+      %button.new_room_button= link_to '+ 新しいルームを作成', new_room_path
+      %button.join_room_button= link_to '🔑 ルームに参加', room_join_path
 
-  .rooms
-    - @room.each do |room|
-      .room
-        %p= room.name
-        %ul
-          %li
-            %p メンバー #{room.members.count}人
-          %li
-            %p 予定 #{room.schedules.active.count}件
-        %button= link_to "入室する →", room_path(room)
+
+    %section.room_section
+      - @room.each do |room|
+        .white_container.room_cards
+          .room_name= room.name
+          %ul.room_counts
+            %li
+              .room_count_label メンバー
+              .room_count= "#{room.members.count}人"
+            %li
+              .room_count_label 予定
+              .room_count= "#{room.schedules.active.count}件"
+          %button.room_in_button= link_to "入室する →", room_path(room)
+
+- else
+  .no_room_content
+    %h3 🏠 まだルームに参加していません
+    %p 新しいルームを作成するか、既存のルームに参加してください
+
+    %section.room_button_section
+      %button.new_room_button= link_to '+ 新しいルームを作成', new_room_path
+      %button.join_room_button= link_to '🔑 ルームに参加', room_join_path

@@ -1,0 +1,38 @@
+// ルーム作成・参加フォーム
+@use 'base/variables' as var;
+
+.room_form_page_container {
+  max-width: 600px;
+}
+
+.room_form_container {
+  margin-top: 2rem;
+  padding: 2.5rem;
+}
+
+.room_form_title {
+  h2 {
+    font-size: 24px;
+  }
+
+  p {
+    margin-top: 0.8rem;
+    color: var.$color-t-gray;
+    font-size: var.$font-md;
+  }
+}
+
+.room_form_error {
+  padding: 0;
+
+  .room_form_error_message:first-child {
+    padding-top: 1.5rem;
+  }
+}
+
+.room_form_button {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: var.$font-lg;
+  font-weight: var.$font-bold;
+}

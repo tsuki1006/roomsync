@@ -81,4 +81,23 @@
   background: var.$gradient-primary;
   color: var.$color-white;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+
+  a {
+    color: var.$color-white;
+    font-weight: var.$font-bold;
+  }
+}
+
+@mixin button_secondary {
+  @include button_primary;
+  background: var.$color-white;
+  border: 1.5px solid var.$color-primary;
+
+  a {
+    color: var.$color-primary;
+    font-weight: var.$font-bold;
+    background: var.$gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

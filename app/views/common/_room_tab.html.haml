@@ -1,0 +1,8 @@
+.white_container.form_tab
+  %nav
+    %ul.form_tab_list
+      %li.form_tab_item{class: "#{add_active_class(new_room_path)}"}
+        = link_to 'ルームを作成', new_room_path
+
+      %li.form_tab_item{class: "#{add_active_class(room_join_path)}"}
+        = link_to 'ルームに参加', room_join_path

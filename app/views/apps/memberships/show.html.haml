@@ -1,15 +1,30 @@
-.container
-  %h2 ルームに参加
+.form_page_container.room_form_page_container
+  = render 'common/room_tab'
 
-  = form_with(model: @room, url: room_join_path, method: 'post', local: true) do |f|
-    %div
-      = f.label :name, 'ルーム名'
-    %div
-      = f.text_field :name
-    %div
-      = f.label :room_key, 'ルームキー（合言葉）'
-    %div
-      = f.text_field :room_key
-      %p ルーム管理者から共有された合言葉を入力してください
+  .white_container.room_form_container
+    .room_form_title
+      %h2 既存のルームに参加
+      %p 参加したいルーム名とルームキーを入力してください
 
-    = f.submit '参加する'
+    .form_container
+      = form_with(model: @room, url: room_join_path, method: 'post', local: true) do |f|
+
+        .form_contents
+          .form_item
+            .form_label
+              = f.label :name, 'ルーム名'
+              %span.required *
+            %div= f.text_field :name, class: 'form_input'
+
+          .form_item
+            .form_label
+              = f.label :room_key, 'ルームキー（合言葉）'
+              %span.required *
+            %div= f.text_field :room_key, class: 'form_input'
+
+        .form_action
+          = f.submit '参加する', class: 'form_button room_form_button'
+
+  .tips
+    .tips_title 💡 Tips
+    %p.tips_message ルームの管理者からルーム名とルームキーを教えてもらいましょう
