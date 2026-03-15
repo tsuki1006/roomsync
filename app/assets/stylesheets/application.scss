@@ -14,6 +14,7 @@
 @use 'components/flash';
 @use 'components/page_title';
 @use 'components/form';
+@use 'components/tips';
 
 // layouts
 @use 'layouts/header';
@@ -22,4 +23,5 @@
 @use 'pages/app_top';
 @use 'pages/my_page';
 @use 'pages/my_room';
+@use 'pages/room_form';
 @use 'pages/room_home';
