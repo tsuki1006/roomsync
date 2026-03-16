@@ -1,14 +1,21 @@
-.container
-  %p= @room.name
-  = link_to '予定を作成', new_room_schedule_path(@room)
+.room_home_container
 
-  %h2 学習予定カレンダー
+  .room_home_left_container
+    %h2.room_home_title
+      %div 学習予定カレンダー
+      %p 日付をクリックして詳細を確認
 
-  .room_schedules
-    .schedule_calendar
-      #month_calendar
-        = render 'month_calendar', schedules: @schedules
+    %section.room_calendar_section
+      .schedule_calendar
+        #month_calendar
+          = render 'month_calendar', schedules: @schedules
 
-    .day_schedules
+  .room_home_right_container
+    .white_container.day_schedules_container
       #day_calendar
         = render 'day_calendar', schedules: @schedules
+
+    .tips.room_home_tips
+      .tips_title 💡 Tips
+      %p.tips_message カレンダーの日付をクリックすると、その日の予定が表示されます
+

@@ -1,0 +1,36 @@
+// スケジュール
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+.schedule_participants {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  &.active {
+    color: var.$color-primary;
+  }
+
+  &_icon {
+    font-size: var.$font-md;
+    display: block;
+    padding-bottom: 3px;
+  }
+}
+
+.schedule_edit {
+  @include mix.button_normal(0.8rem);
+}
+
+.schedule_participate {
+  @include mix.button_primary;
+}
+
+.schedule_cancel {
+  @include mix.button_normal(0.8rem);
+  border: 1px solid #ffcccb;
+
+  a {
+    color: #dc3545;
+  }
+}

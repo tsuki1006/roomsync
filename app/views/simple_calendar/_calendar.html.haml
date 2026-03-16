@@ -1,7 +1,8 @@
 .simple-calendar
   .calendar-heading
-    %p.calendar-title
-      = start_date.day == Time.current.day ? '今日の学習予定' : "#{l(start_date, format: :short)}の学習予定"
+    %h3.calendar-title
+      .day_calendar_accent
+      %span= start_date.day == Time.current.day ? '今日の学習予定' : "#{l(start_date, format: :short)}の学習予定"
 
   %table.table.table-striped
     %tbody

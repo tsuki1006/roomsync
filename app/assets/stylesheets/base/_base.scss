@@ -37,6 +37,10 @@ main {
   margin: 0 auto;
   padding: 2rem;
   width: 100%;
+
+  &:has(.room_home_container) {
+    max-width: 1400px;
+  }
 }
 
 h2 {

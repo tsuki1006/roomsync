@@ -4,7 +4,13 @@
       .logo
         .app_icon R
         .app_logo RoomSync
-      = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}, class: 'logout'
+
+      - if controller_name == 'rooms' && action_name == 'show'
+        .header_room_name
+          %span 🏠
+          %span.room_name= @room.name
+      - else
+        = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}, class: 'logout'
 
 
     - if current_page?(edit_profile_path)
