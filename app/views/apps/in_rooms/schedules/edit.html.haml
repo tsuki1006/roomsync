@@ -1,7 +1,10 @@
-.container
-  %h2 学習予定を編集
+.form_page_container.schedule_form_page_container
 
-  %button
-    = link_to '削除する', room_schedule_path(room_id: @room, id: @schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
+  .schedule_form_top
+    %h2.page_title
+      .h2_accent
+      %span 学習予定を編集
+
+    %button.schedule_cancel.schedule_form_delete= link_to '削除', room_schedule_path(room_id: @room, id: @schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
 
   = render 'form', room: @room, schedule: @schedule

@@ -1,4 +1,7 @@
-.container
-  %h2 学習予定を作成
+.form_page_container.schedule_form_page_container
+
+  %h2.page_title
+    .h2_accent
+    %span 学習予定を作成
 
   = render 'form', room: @room, schedule: @schedule

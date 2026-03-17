@@ -115,6 +115,11 @@
   padding: 0.5rem 1rem;
 }
 
+.form_datetime {
+  @extend .form_input;
+  font-size: 18px;
+}
+
 .form_file {
   font-size: var.$font-md;
   color: gray;

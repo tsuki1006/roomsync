@@ -6,4 +6,12 @@ module SchedulesHelper
     end
     count == 0 ? nil : "#{count}件の予定"
   end
+
+  def current_time_15min_rounded
+    interval = 15
+    time = Time.current
+    rounded_min = (time.min.to_f / interval).ceil * interval
+    rounded_current_time = time.change(min: 0) + rounded_min.minutes
+    rounded_current_time.strftime('%Y-%m-%dT%H:%M')
+  end
 end
