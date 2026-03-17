@@ -1,25 +1,31 @@
-.container
-  %h1 Roomsync
+.app_top_page_container
 
-  %p 学習予定を共有して、同じタイミングで学ぶ仲間を見つける
+  .app_top_title
+    %h1.logo
+      .app_icon R
+      .app_logo RoomSync
 
-  .top_action
-    %button= link_to 'ログイン', new_user_session_path
-    %div
-      %span または
-    %button= link_to '新規登録', new_user_registration_path
+    %p 学習予定を共有して、同じタイミングで学ぶ仲間を見つける
 
-  .top_points
+  .white_container.app_top_action
+    %button.sign_up_button= link_to '新規登録', new_user_registration_path
+    .or_line
+      .line
+      %span.or または
+      .line
+    %button.sign_in_button= link_to 'ログイン', new_user_session_path
+
+  .tips.app_top_points
     %ul
       %li
         %div
-          %span ✨
+          %span.point_icon ✨
         %div
-          %p 学習室の利用予定を可視化
-          %p カレンダーで誰がいつ学習するか一目で分かる
+          .point_title 学習室の利用予定を可視化
+          %p.point_message カレンダーで誰がいつ学習するか一目で分かる
       %li
         %div
-          %span 🤝
+          %span.point_icon 🤝
         %div
-          %p 簡単アクションで予定に参加
-          %p 「一緒に参加」ボタンをクリックするだけ
+          .point_title 簡単アクションで予定に参加
+          %p.point_message 「一緒に参加」ボタンをクリックするだけ
