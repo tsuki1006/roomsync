@@ -1,8 +1,8 @@
 .form_tab.authentication_form_tab
   %nav
     %ul.form_tab_list
-      %li.form_tab_item{class: "#{add_active_class(new_user_session_path)}"}
+      %li.form_tab_item{class: "#{add_active_class_2('sessions', ['new', 'create'])}"}
         = link_to 'ログイン', new_user_session_path
 
-      %li.form_tab_item{class: "#{add_active_class(new_user_registration_path)}"}
+      %li.form_tab_item{class: "#{add_active_class_2('registrations', ['new', 'create'])}"}
         = link_to '新規登録', new_user_registration_path
