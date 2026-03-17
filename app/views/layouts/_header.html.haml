@@ -5,18 +5,17 @@
         .app_icon R
         .app_logo RoomSync
 
-      - if controller_name == 'rooms' && action_name == 'show'
+      - if controller_action?('rooms')
         .header_room_name
           %span 🏠
           %span.room_name= @room.name
       - else
         = link_to 'ログアウト', destroy_user_session_path, data: { turbo_method: 'delete'}, class: 'logout'
 
-
-    - if current_page?(edit_profile_path)
+    - if controller_action?('profiles', ['edit', 'update'])
       = link_to '← 戻る', profile_path, class: 'page_back'
 
-    - elsif current_page?(new_room_path) || current_page?(room_join_path)
+    - elsif controller_action?('rooms', ['new', 'create']) || controller_action?('memberships', ['show', 'create'])
       = link_to '← 戻る', my_room_path, class: 'page_back'
 
     - else
