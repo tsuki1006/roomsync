@@ -1,5 +1,5 @@
 class Apps::MembershipsController < Apps::ApplicationController
-  def show
+  def new
     @room = Room.new
   end
 
@@ -13,12 +13,12 @@ class Apps::MembershipsController < Apps::ApplicationController
         redirect_to room_path(@room), notice: 'ルームに参加しました'
       else
         flash.now[:error] = '既にこのルームに参加しています'
-        render :show, status: :unprocessable_entity
+        render :new, status: :unprocessable_entity
       end
 
     else
       flash.now[:error] = 'ルームが見つかりませんでした'
-      render :show, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
