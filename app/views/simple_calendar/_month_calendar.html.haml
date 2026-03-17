@@ -1,12 +1,12 @@
 .simple-calendar
   .calendar-heading
     %time.calendar-title{:datetime => "#{start_date.strftime('%Y-%m')}"}
-      %button.month_calendar_button= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, data: { turbo_stream: true }
+      = link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, data: { turbo_stream: true }, class: 'month_calendar_button'
       %button.month_calendar_button.selected_month= l(start_date, format: :long_ym)
-      %button.month_calendar_button= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, data: { turbo_stream: true }
-      %button.month_calendar_button.back_today= link_to '今日', url_for(start_date: Time.current.to_date, about: Time.current.to_date), data: { turbo_stream: true }
+      = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, data: { turbo_stream: true }, class: 'month_calendar_button'
+      = link_to '今日', url_for(start_date: Time.current.to_date, about: Time.current.to_date), data: { turbo_stream: true }, class: 'month_calendar_button back_today'
 
-    %button.new_schedule_button= link_to '+ 予定を作成', new_room_schedule_path(@room)
+    = link_to '+ 予定を作成', new_room_schedule_path(@room), class: 'new_schedule_button'
 
   %table.table.table-striped
     %thead

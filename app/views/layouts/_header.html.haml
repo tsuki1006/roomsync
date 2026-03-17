@@ -14,10 +14,10 @@
 
 
     - if current_page?(edit_profile_path)
-      .page_back= link_to '← 戻る', profile_path
+      = link_to '← 戻る', profile_path, class: 'page_back'
 
     - elsif current_page?(new_room_path) || current_page?(room_join_path)
-      .page_back= link_to '← 戻る', my_room_path
+      = link_to '← 戻る', my_room_path, class: 'page_back'
 
     - else
       %nav

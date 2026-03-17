@@ -53,14 +53,12 @@ header {
   }
 
   .page_back {
+    display: inline-block;
     border: var.$border-gray;
     border-radius: var.$radius;
     font-size: 13px;
     padding: 0.7rem 1rem;
-
-    a {
-      color: var.$color-t-gray;
-    }
+    color: var.$color-t-gray;
   }
 
   .header_room_name {

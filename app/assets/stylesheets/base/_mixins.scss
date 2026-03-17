@@ -62,16 +62,15 @@
 }
 
 @mixin button_normal($font-size: var.$font-md) {
+  display: block;
+  text-align: center;
   padding: 0.6rem 1rem;
   font-size: $font-size;
   font-weight: var.$font-medium;
   border: var.$border-gray;
   border-radius: var.$radius;
   background-color: var.$color-white;
-
-  a {
-    color: #444;
-  }
+  color: #444;
 }
 
 @mixin button_primary {
@@ -81,23 +80,13 @@
   background: var.$gradient-primary;
   color: var.$color-white;
   box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
-
-  a {
-    color: var.$color-white;
-    font-weight: var.$font-bold;
-  }
+  font-weight: var.$font-bold;
 }
 
 @mixin button_secondary {
   @include button_primary;
-  background: var.$color-white;
   border: 1.5px solid var.$color-primary;
-
-  a {
-    color: var.$color-primary;
-    font-weight: var.$font-bold;
-    background: var.$gradient-primary;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+  color: var.$color-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

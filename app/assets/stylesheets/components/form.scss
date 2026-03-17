@@ -15,11 +15,13 @@
 .form_tab_item {
   text-align: center;
   width: 100%;
-  padding: 1rem 0;
   font-size: var.$font-lg;
   font-weight: var.$font-semibold;
 
   a {
+    padding: 1rem 0;
+    display: block;
+    width: 100%;
     color: var.$color-t-gray-thin;
   }
 

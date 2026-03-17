@@ -29,8 +29,5 @@
 .schedule_cancel {
   @include mix.button_normal(0.8rem);
   border: 1px solid #ffcccb;
-
-  a {
-    color: #dc3545;
-  }
+  color: #dc3545;
 }

@@ -5,8 +5,8 @@
       %p ルームを選択するか、新しいルームを作成・参加してください
 
     %section.room_button_section
-      %button.new_room_button= link_to '+ 新しいルームを作成', new_room_path
-      %button.join_room_button= link_to '🔑 ルームに参加', room_join_path
+      = link_to '+ 新しいルームを作成', new_room_path, class: 'new_room_button'
+      = link_to '🔑 ルームに参加', room_join_path, class: 'join_room_button'
 
 
     %section.room_section
@@ -20,7 +20,7 @@
             %li
               .room_count_label 予定
               .room_count= "#{room.schedules.active.count}件"
-          %button.room_in_button= link_to "入室する →", room_path(room)
+          = link_to "入室する →", room_path(room), class: 'room_in_button'
 
 - else
   .no_room_content
@@ -28,5 +28,5 @@
     %p 新しいルームを作成するか、既存のルームに参加してください
 
     %section.room_button_section
-      %button.new_room_button= link_to '+ 新しいルームを作成', new_room_path
-      %button.join_room_button= link_to '🔑 ルームに参加', room_join_path
+      = link_to '+ 新しいルームを作成', new_room_path, class: 'new_room_button'
+      = link_to '🔑 ルームに参加', room_join_path, class: 'join_room_button'
