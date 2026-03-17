@@ -28,13 +28,13 @@
 
           .day_schedule_action
             - if schedule.creator == current_user && schedule.end_time > Time.current
-              %button.schedule_edit= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
+              = link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule), class: 'schedule_edit'
 
             - if schedule.active? && schedule.creator != current_user
               - if current_user.has_participated?(schedule)
-                %button.schedule_cancel= link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+                = link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }, class: 'schedule_cancel'
               - else
-                %button.schedule_participate= link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}
+                = link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}, class: 'schedule_participate'
   - else
     .day_schedule_none
       .day_schedule_none_icon 📅

@@ -5,6 +5,6 @@
       .h2_accent
       %span 学習予定を編集
 
-    %button.schedule_cancel.schedule_form_delete= link_to '削除', room_schedule_path(room_id: @room, id: @schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }
+    = link_to '削除', room_schedule_path(room_id: @room, id: @schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'schedule_cancel schedule_form_delete'
 
   = render 'form', room: @room, schedule: @schedule

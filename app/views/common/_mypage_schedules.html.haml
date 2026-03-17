@@ -31,10 +31,10 @@
 
             .schedule_action
               - if schedule.creator == current_user
-                %button.schedule_edit= link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule)
+                = link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule), class: 'schedule_edit'
 
               - else
-                %button.schedule_cancel= link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+                = link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }, class: 'schedule_cancel'
     - else
       .content_box.active.none
         .none_message 🌱 現在予定はありません

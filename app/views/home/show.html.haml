@@ -3,12 +3,12 @@
   = render 'common/app_top_title'
 
   .white_container.app_top_action
-    %button.sign_up_button= link_to '新規登録', new_user_registration_path
+    = link_to '新規登録', new_user_registration_path, class: 'sign_up_button'
     .or_line
       .line
       %span.or または
       .line
-    %button.sign_in_button= link_to 'ログイン', new_user_session_path
+    = link_to 'ログイン', new_user_session_path, class: 'sign_in_button'
 
   .tips.app_top_points
     %ul

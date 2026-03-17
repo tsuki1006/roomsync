@@ -1,7 +1,6 @@
 .white_container.profile
   - if profile
-    %button.profile_edit
-      = link_to 'プロフィール編集', edit_profile_path
+    = link_to 'プロフィール編集', edit_profile_path, class: 'profile_edit'
 
     .profile_contents_1
       .profile_avatar= image_tag profile.user.avatar_image
@@ -27,7 +26,6 @@
   -else
     .profile_none
       %div 🖊️プロフィールを作成してください
-      %button.profile_create
-        = link_to 'プロフィール作成', edit_profile_path
+      = link_to 'プロフィール作成', edit_profile_path, class: 'profile_create'
 
 = render 'common/mypage_tab'
