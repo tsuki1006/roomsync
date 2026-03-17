@@ -16,7 +16,11 @@ Rails.application.routes.draw do
   root to: 'home#show'
 
   scope module: :apps do
-    resource :membership, only: [:show, :create], path: 'rooms/join', as: :room_join
+
+    scope :rooms do
+      resource :membership, only: [:new, :create]
+    end
+
     resource :my_room, only: [:show], path: 'myroom'
     resources :rooms, only: [ :show, :new, :create ] do
 

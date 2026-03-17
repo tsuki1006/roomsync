@@ -7,7 +7,7 @@
       %p 参加したいルーム名とルームキーを入力してください
 
     .form_container
-      = form_with(model: @room, url: room_join_path, method: 'post', local: true) do |f|
+      = form_with(model: @room, url: membership_path, method: 'post', local: true) do |f|
 
         .form_contents
           .form_item

@@ -15,7 +15,7 @@
     - if controller_action?('profiles', ['edit', 'update'])
       = link_to '← 戻る', profile_path, class: 'page_back'
 
-    - elsif controller_action?('rooms', ['new', 'create']) || controller_action?('memberships', ['show', 'create'])
+    - elsif controller_action?('rooms', ['new', 'create']) || controller_action?('memberships', ['new', 'create'])
       = link_to '← 戻る', my_room_path, class: 'page_back'
 
     - else
