@@ -1,0 +1,62 @@
+// ユーザー認証ページ
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+// ページコンテナとタイトルはアプリトップと共有
+
+.authentication_form_container {
+  width: 100%;
+  margin-top: 2.5rem;
+  padding: 2.5rem;
+}
+
+.authentication_form_tab {
+  padding: 0;
+  width: 100%;
+
+  .form_tab_list {
+    border-bottom: 2px solid #f0f0f0;
+
+    a {
+      font-weight: 700;
+    }
+  }
+
+  .active {
+    border-radius: 0;
+    background: none;
+    border-bottom: 2px solid var.$color-primary;
+
+    a {
+      color: var.$color-primary;
+    }
+  }
+}
+
+.remember_check {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+.authentication_form_button {
+  width: 100%;
+  padding: 1.1rem;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+// エラーメッセージ
+.authentication_form_error {
+  padding: 0;
+
+  .authentication_form_error_message {
+    font-size: 0.8rem;
+  }
+
+  .authentication_form_error_message:first-child {
+    padding-top: 1.5rem;
+  }
+}
