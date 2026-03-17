@@ -1,0 +1,51 @@
+// 予定作成・編集フォーム
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
+
+.schedule_form_page_container {
+  max-width: 600px;
+}
+
+.schedule_form_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .schedule_form_delete {
+    font-size: var.$font-lg;
+    padding: 1rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  }
+}
+
+.schedule_form_container {
+  padding: 2.5rem;
+}
+
+.schedule_form_contents {
+  .form_comment {
+    font-size: var.$font-md;
+  }
+}
+
+.schedule_form_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  button, input {
+    font-size: var.$font-lg;
+    padding: 1.2rem;
+  }
+
+  &_cancel {
+    @include mix.button_normal;
+    flex: 1;
+  }
+
+  .form_button {
+    flex: 2;
+  }
+}

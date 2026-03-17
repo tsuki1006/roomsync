@@ -268,22 +268,6 @@
     }
   }
 
-  .schedule_participants {
-    display: flex;
-    align-items: center;
-    gap: 2px;
-
-    &.active {
-      color: var.$color-primary;
-    }
-
-    &_icon {
-      font-size: var.$font-md;
-      display: block;
-      padding-bottom: 3px;
-    }
-  }
-
   .schedule_creator_participants {
     display: flex;
     justify-content: center;
@@ -309,17 +293,5 @@
     font-weight: var.$font-semibold;
     border-radius: 10px;
     background-color: #ededed;
-  }
-  .schedule_edit {
-    @include mix.button_normal(0.8rem);
-  }
-
-  .schedule_cancel {
-    @include mix.button_normal(0.8rem);
-    border: 1px solid #ffcccb;
-
-    a {
-      color: #dc3545;
-    }
   }
 }

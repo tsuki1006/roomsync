@@ -1,15 +1,391 @@
 // room home
+@use 'base/variables' as var;
+@use 'base/mixins' as mix;
 
-.room_schedules {
+
+// コンテナ・タイトル
+.room_home_container {
+  margin-top: 1rem;
   display: flex;
-  gap: 20px;
   align-items: start;
+  gap: 2rem;
 }
 
-.schedule_calendar {
-  width: 700px;
+.room_home_left_container {
+  flex: auto
 }
 
-.day_schedules {
-  width: 200px;
+.room_home_right_container {
+  max-width: 360px;
+}
+
+.room_home_title {
+  p {
+    margin-top: 1rem;
+    color: var.$color-t-gray;
+    font-size: var.$font-md;
+    font-weight: var.$font-regular;
+  }
+}
+
+// 月間カレンダーセクション
+.room_calendar_section {
+  margin-top: 1.5rem;
+}
+
+#month_calendar .simple-calendar {
+  .calendar-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .calendar-title {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .month_calendar_button {
+    @include mix.button_normal;
+    padding: 0.8rem 1.2rem;
+    font-weight: var.$font-medium;
+
+    &.selected_month {
+      color: var.$color-t-primary;
+    }
+
+    &.back_today {
+      margin-left: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+
+      a {
+        color: var.$color-t-gray;
+      }
+    }
+  }
+
+  .new_schedule_button {
+    @include mix.button_primary;
+    padding: 0.8rem 1.5rem;
+  }
+
+  // カレンダー部分
+  table {
+    border-collapse: separate;
+    -webkit-border-horizontal-spacing: 0.5rem;
+    -webkit-border-vertical-spacing: 0.5rem;
+    @include mix.white_container;
+    margin-top: 1.5rem;
+    padding: 1rem;
+  }
+
+  // 曜日
+  .day_name {
+    font-size: var.$font-md;
+    text-align: center;
+    border: none;
+
+    &.sunday {
+      color: #f87171;
+    }
+
+    &.saturday {
+      color: #60a5fa;
+    }
+  }
+
+  td {
+    border: var.$border-default;
+    height: 90px;
+    padding: 0.75rem;
+    border-radius: var.$radius;
+    font-size: var.$font-md;
+    font-weight: var.$font-semibold;
+
+    a {
+      display: block;
+      height: 100%;
+      color: var.$color-t-secondary;
+    }
+
+    .calendar_schedule_count {
+      margin-top: 1rem;
+      padding: 0.25rem 0.5rem;
+      width: fit-content;
+      color: var.$color-primary;
+      font-size: var.$font-sm;
+      border-radius: 6px;
+      background: rgba(102, 126, 234, 0.15);
+    }
+  }
+
+  // 当日
+  .today {
+    background: rgba(102, 126, 234, 0.08);
+    border: 1px solid var.$color-primary;
+
+    a {
+      color: var.$color-primary;
+    }
+  }
+
+  // ピックアップした日
+  .start-date {
+    background: var.$gradient-primary;
+    border: 1px solid var.$color-primary;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+
+    a {
+      color: var.$color-white;
+    }
+
+    .calendar_schedule_count {
+      color: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .prev-month, .next-month {
+    border: none;
+    background: rgba(224, 224, 224, 0.2);
+
+    a {
+      color: #cecece;
+    }
+
+    .calendar_schedule_count {
+      display: none;
+    }
+  }
+}
+
+// 選択した日の予定
+.day_schedules_container {
+  max-height: 800px;
+  box-sizing: border-box;
+  padding: 1.5rem;
+  overflow-y: auto;
+  scrollbar-gutter: auto;
+  scrollbar-width: thin;
+}
+
+#day_calendar .simple-calendar {
+  .calendar-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 20px;
+  }
+
+  .day_calendar_accent {
+    width: 6px;
+    height: 24px;
+    background: var.$gradient-primary;
+    border-radius: 3px;
+  }
+
+  table {
+    margin-top: 1.5rem;
+    border: none;
+    table-layout: fixed;
+
+    tbody, tr, td {
+      border: none;
+    }
+
+    td {
+      width: 100%;
+      height: auto;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+
+  .today {
+    background: none;
+  }
+}
+
+// 予定カード
+.day_schedule {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: var.$border-gray;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    border: 1px solid var.$color-primary;
+    background: #fafbff;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  }
+}
+
+// 予定時間・ステータス
+.day_schedule_top {
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var.$border-gray;
+}
+
+.day_schedule_time {
+  color: var.$color-t-gray;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  letter-spacing: -0.5px;
+
+  .start_time {
+    font-size: 32px;
+    font-weight: var.$font-extrabold;
+    background: var.$gradient-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: end;
+    line-height: 1;
+  }
+
+  .end_time {
+    margin-top: 2px;
+    font-weight: var.$font-semibold;
+    display: flex;
+    align-items: end;
+    gap: 2px;
+
+    .next_day {
+      font-size: var.$font-lg;
+      padding-bottom: 2px;
+    }
+  }
+}
+
+.day_schedule_status {
+  position: relative;
+  left: 5px;
+  top: 3px;
+  flex: none;
+  width: fit-content;
+  background: var.$color-tag-gray;
+  padding: 0.2rem 0.6rem;
+  border-radius: var.$radius;
+  font-size: var.$font-sm;
+  font-weight: var.$font-semibold;
+  color: var.$color-t-gray-thin;
+}
+
+// その他スケジュール内容
+.day_schedule_contents {
+  display: flex;
+  align-items: start;
+  gap: 1rem;
+  min-width: 0;
+
+  .avatar {
+    @include mix.avatar(48px);
+    border: var.$border-default;
+    flex: none;
+  }
+
+  .day_schedule_text_content {
+    color: var.$color-t-secondary;
+    min-width: 0;
+    padding-top: 2px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+
+    .day_schedule_creator {
+      font-size: var.$font-md;
+      font-weight: var.$font-semibold;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .day_schedule_comment {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.day_schedule_participants {
+  width: fit-content;
+  padding: 0.3rem 0.75rem;
+  color: var.$color-t-gray-thin;
+  font-weight: var.$font-semibold;
+  border-radius: var.$radius;
+  background: var.$color-tag-gray;
+
+  &.active {
+    color: var.$color-primary;
+    background: var.$color-tag;
+  }
+}
+
+// ボタン
+.day_schedule_action {
+  button {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.8rem;
+    font-size: var.$font-md;
+    transition: all 0.2s ease;
+    box-shadow: none;
+  }
+
+  .schedule_edit {
+    border: 1px solid var.$color-primary;
+
+    a {
+      color: var.$color-primary;
+    }
+  }
+
+  .schedule_participate:hover {
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3)
+  }
+}
+
+// 予定がない場合の表示
+.day_schedule_none {
+  text-align: center;
+  padding: 2rem 1rem 3rem 1rem;
+  color: var.$color-t-gray-thin;
+
+  &_icon {
+    font-size: 3rem;
+  }
+
+  &_message {
+    margin-top: 1.2rem;
+    font-size: var.$font-md;
+    font-weight: var.$font-medium;
+  }
+}
+
+// Tips
+.room_home_tips {
+  padding: 1rem;
+
+  .tips_title {
+    font-size: 14px;
+  }
+
+  .tips_message {
+    font-size: 13px;
+  }
 }

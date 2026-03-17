@@ -17,14 +17,17 @@ $color-t-btn: #444;
 
 // Colors - Tag
 $color-tag: rgba(102, 126, 234, 0.1);
+$color-tag-gray: rgba(0, 0, 0, 0.04);
 
 // Gradient
 $gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+$gradient-secondary: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
 
 // Border
 $border-default: 1px solid rgba(0, 0, 0, 0.06);
 $border-gray: 1px solid #e0e0e0;
 $border-purple: 1px solid rgba(102, 126, 234, 0.1);
+$border-purple-darker: 1px solid rgba(102, 126, 234, 0.2);
 $border-purple-dark: 1px solid rgba(102, 126, 234, 0.4);
 
 $radius: 8px;

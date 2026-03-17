@@ -2,4 +2,6 @@
 
   = link_to url_for(start_date: date, about: date), data: { turbo_stream: true } do
     = date.day
-    %div= todays_schedule_count(schedules, date) if schedules.count > 0
+    - count = todays_schedule_count(schedules, date)
+    - if count.present?
+      .calendar_schedule_count= count

@@ -1,28 +1,41 @@
 = calendar(number_of_days: 1, events: schedules, start_date_param: :about) do |date, schedules|
 
-  - if schedules.present?
+  - if todays_schedule_count(schedules, date).present?
     - schedules.each do |schedule|
-      .schedule
-        %p= schedule.display_start_time
-        %p
-          %span= schedule.display_next_day
-          = schedule.display_end_time
+      - if schedule.start_time.to_date == date
+        .day_schedule
+          .day_schedule_top
+            .day_schedule_time
+              %span.start_time= schedule.display_start_time
+              %span -
+              %span.end_time
+                %span.next_day= schedule.display_next_day
+                %span= schedule.display_end_time
+            .day_schedule_status #{I18n.t("enum.status.#{schedule.status}")}
 
-        - if schedule.creator == current_user && schedule.end_time > Time.current
-          %button= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
+          .day_schedule_contents
+            .avatar
+              = image_tag schedule.creator.avatar_image
 
-        .avatar
-          = image_tag schedule.creator.avatar_image
-        %p= schedule.creator.name
-        %p= schedule.comment
-        %p #{I18n.t("enum.status.#{schedule.status}")}
+            .day_schedule_text_content
+              .day_schedule_creator= schedule.creator.name
+              .day_schedule_comment= schedule.comment
 
-        %p= "#{schedule.participants.count}人参加中"
+          - count = schedule.participants.count
+          .schedule_participants.day_schedule_participants{ class: count > 0 ? 'active' : nil }
+            .schedule_participants_icon 👥
+            %div= "#{count}人参加中"
 
-        - if schedule.active? && schedule.creator != current_user
-          - if current_user.has_participated?(schedule)
-            %button= link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
-          - else
-            %button= link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}
+          .day_schedule_action
+            - if schedule.creator == current_user && schedule.end_time > Time.current
+              %button.schedule_edit= link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule)
+
+            - if schedule.active? && schedule.creator != current_user
+              - if current_user.has_participated?(schedule)
+                %button.schedule_cancel= link_to '参加をキャンセル', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }
+              - else
+                %button.schedule_participate= link_to '一緒に参加する', room_schedule_participation_path(room_id: @room, schedule_id: schedule), data: { turbo_method: :post}
   - else
-    %div= 'まだ予定がありません'
+    .day_schedule_none
+      .day_schedule_none_icon 📅
+      .day_schedule_none_message この日の予定はまだありません

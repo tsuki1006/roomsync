@@ -15,6 +15,7 @@
 @use 'components/page_title';
 @use 'components/form';
 @use 'components/tips';
+@use 'components/schedule';
 
 // layouts
 @use 'layouts/header';
@@ -25,3 +26,4 @@
 @use 'pages/my_room';
 @use 'pages/room_form';
 @use 'pages/room_home';
+@use 'pages/schedule_form';
