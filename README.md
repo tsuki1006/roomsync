@@ -79,6 +79,77 @@ RoomSyncは、オンライン学習の孤独を解消するための学習スケ
 
 
 ## 💻 データベース設計（ER図）
+
+```mermaid
+erDiagram
+
+  Users ||--|| Profiles : "1対1"
+  Users ||--o{ Rooms : "ルームを作成"
+  Users ||--o{ UserRooms : "ルームに所属"
+  Rooms ||--o{ UserRooms : "ルーム内のユーザー"
+
+  Users ||--o{ Schedules : "予定を作成"
+  Rooms ||--o{ Schedules : "ルーム内の予定"
+
+  Users ||--o{ Participation : "予定に参加"
+  Schedules ||--o{ Participation : "参加者"
+
+  Users {
+    INT id PK "Auto Increment"
+    VARCHAR(255) email "Not Null / Unique"
+    VARCHAR(128) encrypted_password "Not Null / hashed"
+    DATETIME remember_created_at
+  }
+
+  Profiles {
+    INT id PK "Auto Increment"
+    INT user_id FK "Not Null / Unique"
+    Attachment avatar "Active Storage"
+    VARCHAR(20) name "Not Null"
+    TEXT introduction "max: 100"
+    ENUM course "Not Null (受講コース)"
+    VARCHAR(255) x_url "Format check"
+    VARCHAR(255) github_url "Format check"
+    VARCHAR(80) comment "任意のコメント"
+  }
+
+  Rooms {
+    INT id PK "Auto Increment"
+    INT creator_id FK "user_id参照 / Not Null"
+    VARCHAR(50) name "Not Null / Unique"
+    VARCHAR room_key_digest "Not Null / ハッシュ化したルームキー"
+    TEXT description "任意の説明"
+  }
+
+  UserRooms {
+    INT id PK "Auto Increment"
+    INT user_id FK "Not Null / Unique(with room_id)"
+    INT room_id FK "Not Null"
+    ENUM role "Not Null (オーナー/メンバー)"
+  }
+
+  Schedules {
+    INT id PK "Auto Increment"
+    INT room_id FK "Not Null"
+    INT user_id FK "Not Null"
+    DATETIME start_time "Not Null / Index"
+    DATETIME end_time "Not Null"
+    VARCHAR(50) comment "任意のコメント"
+    ENUM status "Not Null (もくもく/お話OK等)"
+  }
+
+  Participation {
+    INT id PK "Auto Increment"
+    INT user_id FK "Not Null / Unique(with schedule_id)"
+    INT schedule_id FK "Not Null"
+  }
+
+```
+※ すべてのテーブルに Rails 標準の timestamps (created_at, updated_at) を含みます。  
+※ 認証機能はdeviseを使用しています。(パスワード再設定機能は現段階では未実装)
+
+
+
 ## 💡 実装で意識した点
 
 ## 📝 今後実装予定の機能
