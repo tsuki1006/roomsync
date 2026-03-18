@@ -39,6 +39,12 @@ RoomSyncは、オンライン学習の孤独を解消するための学習スケ
 
 ## 🖼️ 使用イメージ
 <!-- スクリーンショット -->
+<div align="center">
+  <img src="docs/images/room-home.png" width="500px" alt="RoomSyncのデモ画面">
+</div>
+
+[使用イメージ詳細](docs/manual/page_image.md)
+
 ## 🔔 機能一覧
 ## ⚙️ 主な使用技術
 ## 💻 データベース設計（ER図）
