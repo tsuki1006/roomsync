@@ -65,6 +65,19 @@ RoomSyncは、オンライン学習の孤独を解消するための学習スケ
 
 
 ## ⚙️ 主な使用技術
+- **開発環境** : Windows Subsystem for Linux (WSL2) / Ubuntu
+- **バックエンド** : Ruby 3.3.2, Ruby on Rails Rails 7.2.3
+- **フロントエンド** : Haml, SCSS(Dart Sass)
+- **インフラ・DB** : Heroku / AWS, PostgreSQL 15+ (予定)
+- **その他** :
+  - Git, GitHub(バージョン管理)
+  - rubocop(リンタ―)
+  - devise(ユーザー認証)
+  - bullet(N+1クエリ検出)
+  - bcrypt(ルームキーハッシュ化)
+  - simple_calendar(カレンダー表示)
+
+
 ## 💻 データベース設計（ER図）
 ## 💡 実装で意識した点
 
