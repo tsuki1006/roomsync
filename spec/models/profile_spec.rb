@@ -6,7 +6,6 @@ RSpec.describe Profile, type: :model do
     expect(build(:profile)).to be_valid
   end
 
-
   context 'nameがないとき' do
     let(:profile) { build(:profile, name: '') }
 
@@ -19,7 +18,6 @@ RSpec.describe Profile, type: :model do
     end
   end
 
-
   context 'nameが20文字を超えているとき' do
     let(:profile) { build(:profile, name: Faker::Lorem.characters(number: 21)) }
 
@@ -31,7 +29,6 @@ RSpec.describe Profile, type: :model do
       expect(profile.errors.of_kind?(:name, :too_long)).to be true
     end
   end
-
 
   context 'つぶやきが80文字を超えているとき' do
     let(:profile) { build(:profile, comment: Faker::Lorem.characters(number: 81)) }
@@ -56,7 +53,6 @@ RSpec.describe Profile, type: :model do
       expect(profile.errors.of_kind?(:user, :blank)).to be true
     end
   end
-
 
   context 'プロフィールが既に存在しているとき' do
     let(:profile) { create(:profile) }

@@ -6,7 +6,6 @@ RSpec.describe Schedule, type: :model do
     expect(build(:schedule)).to be_valid
   end
 
-
   context 'start_timeががないとき' do
     let(:schedule) { build(:schedule, start_time: nil) }
 
@@ -19,7 +18,6 @@ RSpec.describe Schedule, type: :model do
     end
   end
 
-
   context 'end_timeががないとき' do
     let(:schedule) { build(:schedule, end_time: nil) }
 
@@ -31,7 +29,6 @@ RSpec.describe Schedule, type: :model do
       expect(schedule.errors.of_kind?(:end_time, :blank)).to be true
     end
   end
-
 
   context 'end_timeがstart_timeよりも前のとき' do
     let(:schedule) { build(:schedule) }
@@ -46,7 +43,6 @@ RSpec.describe Schedule, type: :model do
       expect(schedule.errors[:end_time]).to include('は開始時間以降の時間を選択してください')
     end
   end
-
 
   context 'start_time現在のよりも前のとき' do
     let(:base_time) { Time.current.change(min: 0) }
@@ -67,7 +63,6 @@ RSpec.describe Schedule, type: :model do
     end
   end
 
-
   context '予定の期間が24時間を超えるとき' do
     let(:schedule) { build(:schedule) }
 
@@ -81,7 +76,6 @@ RSpec.describe Schedule, type: :model do
       expect(schedule.errors[:end_time]).to include('は開始から24h以内に設定してください')
     end
   end
-
 
   context '同じ時間帯の時間帯が既に存在しているとき' do
     let(:schedule) { create(:schedule) }
@@ -103,7 +97,6 @@ RSpec.describe Schedule, type: :model do
       expect(duplicate_schedule.errors[:base]).to include('同じ時間帯に複数の予定を作成することはできません')
     end
   end
-
 
   context '時間が15分単位でないとき' do
     let(:schedule) do
