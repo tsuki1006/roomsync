@@ -228,9 +228,15 @@
 .my_page_schedule {
 
   .schedule {
+    padding: 0 1.25rem 0 0;
     position: relative;
     display: flex;
     justify-content: space-between;
+  }
+
+  .schedule_card_link {
+    padding: 1.25rem;
+    flex: auto;
   }
 
   .schedule_content {
