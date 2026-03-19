@@ -29,6 +29,7 @@ class Profile < ApplicationRecord
   enum :course, [:unset, :other, :rails, :java ], default: :unset
 
   #バリデーション
+  validates :user_id, uniqueness: true
   validates :name, presence: true, length: { in: 1..20 }
   validates :course, presence: true
   validates :introduction, length: { maximum: 100 }, allow_blank: true
