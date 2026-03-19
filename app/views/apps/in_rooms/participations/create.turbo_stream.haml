@@ -1,0 +1,8 @@
+= turbo_stream.replace "participants_count_#{@schedule.id}" do
+  = render 'apps/rooms/participants_count', schedule: @schedule
+
+= turbo_stream.replace "participation_button_#{@schedule.id}" do
+  = render 'apps/rooms/participation_button', room: @room, schedule: @schedule
+
+= turbo_stream.update "flash" do
+  = render 'layouts/flash'

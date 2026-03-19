@@ -1,0 +1,11 @@
+%div{ id: "participation_button_#{schedule.id}" }
+  - if current_user.has_participated?(schedule)
+    = link_to '参加をキャンセル',
+              room_schedule_participation_path(room_id: room, schedule_id: schedule),
+              data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？', disable_with: '処理中...' },
+              class: 'schedule_cancel'
+  - else
+    = link_to '一緒に参加する',
+              room_schedule_participation_path(room_id: room, schedule_id: schedule),
+              data: { turbo_method: :post, disable_with: '処理中...'},
+              class: 'schedule_participate'
