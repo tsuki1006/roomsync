@@ -4,7 +4,7 @@
     - if schedules.present?
       - schedules.each do |schedule|
         .content_box.schedule
-          = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date) do
+          = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date), class: 'schedule_card_link' do
             .schedule_content
               .schedule_time_date
                 .schedule_time
@@ -29,12 +29,10 @@
                     %div= "#{count}人参加中"
                 .schedule_room= schedule.room.name
 
-            .schedule_action
-              - if schedule.creator == current_user
-                = link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule), class: 'schedule_edit'
+          .schedule_action
+            - if schedule.creator == current_user
+              = link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule), class: 'schedule_edit'
 
-              - else
-                = link_to '参加をキャンセル', room_schedule_participation_path(room_id: schedule.room, schedule_id: schedule), data: { turbo_method: :delete, turbo_confirm: '参加をキャンセルしますか？' }, class: 'schedule_cancel'
     - else
       .content_box.active.none
         .none_message 🌱 現在予定はありません
