@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Schedules", type: :system, display: true do
+RSpec.describe 'Schedules', type: :system, display: true do
 
   context 'ユーザーがログイン後スケジュールを作成すると' do
     let(:user) { create(:user, :with_profile) }
