@@ -46,6 +46,7 @@ group :development, :test do
 
   gem 'bullet'
   gem 'pry-byebug'
+  gem 'rspec-rails'
 end
 
 group :development do
