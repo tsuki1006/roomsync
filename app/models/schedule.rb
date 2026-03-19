@@ -43,6 +43,7 @@ class Schedule < ApplicationRecord
   validate :start_check
   validate :less_than_24h_check
   validate :duplicates_check
+  validate :time_15_minute_interval_check
 
   def start_finish_check
     return if start_time.blank? || end_time.blank?
@@ -68,6 +69,14 @@ class Schedule < ApplicationRecord
               .where(room_id: self.room_id)
               .where('end_time > ? and ? > start_time', self.start_time, self.end_time).present?
       errors.add(:base, '同じ時間帯に複数の予定を作成することはできません')
+    end
+  end
+
+  def time_15_minute_interval_check
+    return if start_time.blank? || end_time.blank?
+
+    unless start_time.min % 15 == 0 && end_time.min % 15
+      errors.add(:base, '時刻は15分単位で入力してください')
     end
   end
 
