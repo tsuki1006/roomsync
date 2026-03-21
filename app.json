@@ -1,0 +1,16 @@
+{
+  "name": "RoomSync",
+  "description": "This is portfolio application",
+  "keywords": [],
+  "website": "",
+  "repository": "https://github.com/tsuki1006/roomsync",
+  "env": {},
+  "addons": [
+    "heroku-postgresql:essential-0"
+  ],
+  "buildpacks": [{
+    "url": "heroku/nodejs"
+  }, {
+    "url": "heroku/ruby"
+  }]
+}
