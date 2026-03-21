@@ -45,6 +45,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
 
   gem 'bullet'
+  gem 'dotenv-rails'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'pry-byebug'
@@ -69,6 +70,7 @@ end
 
 gem 'active_decorator'
 gem 'active_model_serializers'
+gem 'aws-sdk-s3', require: false
 gem 'dartsass-rails'
 gem 'devise'
 gem 'haml-rails'
