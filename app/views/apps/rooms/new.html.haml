@@ -18,13 +18,13 @@
             .form_label
               =f.label :name, 'ルーム名'
               %span.required *
-            %div= f.text_field :name, class: 'form_input'
+            %div= f.text_field :name, required: true, class: 'form_input'
 
           .form_item
             .form_label
               =f.label :room_key, 'ルームキー（合言葉）'
               %span.required *
-            %div= f.text_field :room_key, class: 'form_input', placeholder: '6文字以上'
+            %div= f.text_field :room_key, required: true, class: 'form_input', placeholder: '6文字以上'
             %p.form_comment 他のユーザーがこのルームに参加するための合言葉です
 
           .form_item

@@ -18,6 +18,9 @@ ja:
       schedule:
         start_time: '開始日時'
         end_time: '終了日時'
+      room:
+        name: 'ルーム名'
+        room_key: 'ルームキー'
   simple_calendar:
     previous: "← 前月"
     next: "次月 →"

@@ -13,7 +13,7 @@ class Apps::RoomsController < Apps::ApplicationController
     @room = current_user.created_rooms.build
     @room.assign_attributes(room_params)
     if @room.save
-      redirect_to room_path(@room), notice: 'ルームを作成しました'
+      redirect_to room_path(@room, format: :html), notice: 'ルームを作成しました'
     else
       flash.now[:error] = 'ルームの作成に失敗しました'
       render :new, status: :unprocessable_entity
