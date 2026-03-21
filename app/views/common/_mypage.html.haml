@@ -8,16 +8,20 @@
         .profile_name= profile.name
         .profile_course= I18n.t("enum.courses.#{profile.course}")
 
-    .profile_contents_2
-      .profile_comment
-        %p= "🗨️ #{profile.comment}"
-      .profile_sns_logo
-        .sns_logo.x_logo
-          = link_to profile.x_url, target: '_blank' do
-            = image_tag 'x_logo.svg'
-        .sns_logo.github_logo
-          = link_to profile.github_url, target: '_blank' do
-            = image_tag 'github_logo.svg'
+    - if profile.comment.present? || profile.x_url.present? || profile.github_url.present?
+      .profile_contents_2
+        - if profile.comment.present?
+          .profile_comment
+            %p= "🗨️ #{profile.comment}"
+        .profile_sns_logo
+          - if profile.x_url.present?
+            .sns_logo.x_logo
+              = link_to profile.x_url, target: '_blank' do
+                = image_tag 'x_logo.svg'
+          - if profile.github_url.present?
+            .sns_logo.github_logo
+              = link_to profile.github_url, target: '_blank' do
+                = image_tag 'github_logo.svg'
 
     .profile_introduction
       .label 自己紹介
