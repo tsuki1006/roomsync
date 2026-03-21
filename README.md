@@ -81,8 +81,9 @@ RoomSyncは、オンライン学習の孤独を解消するための学習スケ
 ## ⚙️ 主な使用技術
 - **開発環境** : Windows Subsystem for Linux (WSL2) / Ubuntu
 - **バックエンド** : Ruby 3.3.2, Ruby on Rails Rails 7.2.3
-- **フロントエンド** : Haml, SCSS(Dart Sass)
-- **インフラ・DB** : Heroku / AWS, PostgreSQL 15+ (予定)
+- **フロントエンド** : Haml, SCSS(Dart Sass), Hotwire (Turbo + Stimulus)
+- **インフラ・DB** : Heroku / AWS(S3), PostgreSQL 16.13
+- **テスト** : RSpec
 - **その他** :
   - Git, GitHub(バージョン管理)
   - rubocop(リンタ―)
@@ -209,9 +210,7 @@ erDiagram
 - [x] カレンダー表示
 - [x] 一緒に参加機能
 
-**※現在テスト、デプロイ作業にあたっています**
-
-### Phase 2 (予定)
+### Phase 2 (現在)
 - [ ] マイページ通知
 - [ ] メール通知
 - [ ] つぶやき表示機能
