@@ -10,7 +10,7 @@ class Apps::MembershipsController < Apps::ApplicationController
 
       if @room.members.find_by(id: current_user.id).nil?
         UserRoom.create!(user: current_user, room: @room)
-        redirect_to room_path(@room), notice: 'ルームに参加しました'
+        redirect_to room_path(@room, format: :html), notice: 'ルームに参加しました'
       else
         flash.now[:error] = '既にこのルームに参加しています'
         render :new, status: :unprocessable_entity
