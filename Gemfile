@@ -74,4 +74,5 @@ gem 'aws-sdk-s3', require: false
 gem 'dartsass-rails'
 gem 'devise'
 gem 'haml-rails'
+gem 'openssl'
 gem 'simple_calendar'
