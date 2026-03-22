@@ -2,7 +2,10 @@ class Apps::RoomsController < Apps::ApplicationController
   before_action :set_room, only: [ :show ]
 
   def show
-    @schedules = @room.schedules.includes([:creator])
+    @schedules = @room.schedules.includes(
+      participants: { profile: :avatar_attachment },
+      creator: { profile: :avatar_attachment }
+    )
   end
 
   def new
