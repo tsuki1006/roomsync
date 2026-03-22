@@ -18,11 +18,12 @@
               = image_tag schedule.creator.avatar_image
 
             - if schedule.creator.comment.present?
-              .day_schedule_user_comment
-                %span.comment_icon 💭
+              %div{ data: { controller: 'comment' } }
+                .day_schedule_user_comment{ data: { action: 'click->comment#displayUserComment' } }
+                  %span.comment_icon 💭
 
-              .day_schedule_user_comment_detail
-                %span.comment_text= schedule.creator.comment
+                .day_schedule_user_comment_detail.hidden{ data: { comment_target: 'userComment' } }
+                  %span.comment_text= schedule.creator.comment
 
             .day_schedule_text_content
               .day_schedule_creator= schedule.creator.name
