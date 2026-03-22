@@ -1,12 +1,15 @@
-.day_schedule_participants_section{ id: "participants_count_#{schedule.id}" }
+.day_schedule_participants_section{ id: "participants_count_#{schedule.id}", data: { controller: 'participants' } }
   - count = schedule.participants.count
-  .schedule_participants.day_schedule_participants{ class: count > 0 ? 'active' : nil }
-    .schedule_participants_icon 👥
-    %div= "#{count}人参加中"
+
+  %div{ data: { action: 'click->participants#displayParticipants' }}
+    .schedule_participants.day_schedule_participants{ class: count > 0 ? 'active' : nil }
+      .schedule_participants_icon 👥
+      %div= "#{count}人参加中"
 
   - if count > 0
-    %ul.schedule_participants_list
-      - schedule.participants.each do |participant|
-        %li.schedule_participant
-          .avatar= image_tag participant.avatar_image
-          = participant.display_name
+    .hidden{ data: { participants_target: 'participantsList' } }
+      %ul.schedule_participants_list
+        - schedule.participants.each do |participant|
+          %li.schedule_participant
+            .avatar= image_tag participant.avatar_image
+            = participant.display_name
