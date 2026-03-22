@@ -283,9 +283,9 @@
 
 // その他スケジュール内容
 .day_schedule_contents {
+  position: relative;
   display: flex;
   align-items: start;
-  gap: 1rem;
   min-width: 0;
 
   .avatar {
@@ -294,10 +294,44 @@
     flex: none;
   }
 
+  .day_schedule_user_comment {
+    position: absolute;
+    top: 2.25rem;
+    left: 2rem;
+    background: #f0f0f0;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .comment_icon {
+      font-size: var.$font-lg;
+    }
+  }
+
+  .day_schedule_user_comment_detail {
+    position: absolute;
+    top: 3.5rem;
+    left: 1.5rem;
+    padding: 0.6rem 1rem;
+    font-size: var.$font-base;
+    line-height: 1.5;
+    background: var.$color-white;
+    border: var.$border-gray;
+    border-radius: 25px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
+    z-index: 100;
+    width: max-content;
+    max-width: 100%;
+
+    .comment_text {
+      word-break: break-word;
+    }
+  }
+
   .day_schedule_text_content {
     color: var.$color-t-secondary;
     min-width: 0;
     padding-top: 2px;
+    margin-left: 1rem;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -319,6 +353,11 @@
   }
 }
 
+// 参加者セクション
+.day_schedule_participants_section {
+  position: relative;
+}
+
 .day_schedule_participants {
   width: fit-content;
   padding: 0.3rem 0.75rem;
@@ -326,10 +365,40 @@
   font-weight: var.$font-semibold;
   border-radius: var.$radius;
   background: var.$color-tag-gray;
+  cursor: pointer;
 
   &.active {
     color: var.$color-primary;
     background: var.$color-tag;
+  }
+}
+
+.schedule_participants_list {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 2.5rem;
+  padding: 0.5rem;
+  background-color: var.$color-white;
+  border: var.$border-gray;
+  border-radius: var.$radius;
+  box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
+
+  .schedule_participant {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+
+    .avatar {
+      @include mix.avatar(21px)
+    }
+  }
+
+  .schedule_participant + .schedule_participant {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: var.$border-gray;
   }
 }
 
