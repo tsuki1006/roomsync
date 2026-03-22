@@ -23,12 +23,12 @@
 
           = render 'apps/rooms/participants_count', schedule: schedule
 
-          .day_schedule_action
-            - if schedule.creator == current_user && schedule.end_time > Time.current
-              = link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule), class: 'schedule_edit'
-
-            - if schedule.active? && schedule.creator != current_user
-              = render 'apps/rooms/participation_button', room: @room, schedule: schedule
+          - if schedule.active?
+            .day_schedule_action
+              - if schedule.creator == current_user
+                = link_to '編集', edit_room_schedule_path(room_id: @room, id: schedule), class: 'schedule_edit'
+              - else
+                = render 'apps/rooms/participation_button', room: @room, schedule: schedule
 
   - else
     .day_schedule_none
