@@ -72,16 +72,32 @@
   }
 
   &_comment {
-    width: fit-content;
-    padding: 0.4rem 1rem;
-    border: var.$border-purple;
-    border-radius: 30px;
-    background-color: var.$color-purple-thin;
+    position: relative;
+    padding: .6rem 1rem;
+    font-size: 12px;
+    line-height: 1.5;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
 
     p {
       font-size: var.$font-md;
       color: var.$color-t-secondary;
       line-height: 1.6;
+    }
+
+    .profile_comment_point {
+      position: absolute;
+      top: -7px;
+      left: 24px;
+      width: 13px;
+      height: 13px;
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-right: none;
+      border-bottom: none;
+      transform: rotate(45deg);
     }
   }
 

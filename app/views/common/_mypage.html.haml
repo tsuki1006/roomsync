@@ -12,7 +12,8 @@
       .profile_contents_2
         - if profile.comment.present?
           .profile_comment
-            %p= "🗨️ #{profile.comment}"
+            .profile_comment_point
+            %p= profile.comment
         .profile_sns_logo
           - if profile.x_url.present?
             .sns_logo.x_logo
