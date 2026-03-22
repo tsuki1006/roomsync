@@ -283,6 +283,7 @@
 
 // その他スケジュール内容
 .day_schedule_contents {
+  position: relative;
   display: flex;
   align-items: start;
   gap: 1rem;
@@ -292,6 +293,38 @@
     @include mix.avatar(48px);
     border: var.$border-default;
     flex: none;
+  }
+
+  .day_schedule_user_comment {
+    position: absolute;
+    top: 2.25rem;
+    left: 2rem;
+    background: #f0f0f0;
+    border-radius: 10px;
+
+    .comment_icon {
+      font-size: var.$font-lg;
+    }
+  }
+
+  .day_schedule_user_comment_detail {
+    position: absolute;
+    top: 3.5rem;
+    left: 1.5rem;
+    padding: 0.6rem 1rem;
+    font-size: var.$font-base;
+    line-height: 1.5;
+    background: var.$color-white;
+    border: var.$border-gray;
+    border-radius: 25px;
+    box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
+    z-index: 100;
+    width: max-content;
+    max-width: 100%;
+
+    .comment_text {
+      word-break: break-word;
+    }
   }
 
   .day_schedule_text_content {

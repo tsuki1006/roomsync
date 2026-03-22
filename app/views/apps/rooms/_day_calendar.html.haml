@@ -17,6 +17,13 @@
             .avatar
               = image_tag schedule.creator.avatar_image
 
+            - if schedule.creator.comment.present?
+              .day_schedule_user_comment
+                %span.comment_icon 💭
+
+              .day_schedule_user_comment_detail
+                %span.comment_text= schedule.creator.comment
+
             .day_schedule_text_content
               .day_schedule_creator= schedule.creator.name
               .day_schedule_comment= schedule.comment
