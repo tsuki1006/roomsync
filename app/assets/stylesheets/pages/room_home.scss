@@ -319,6 +319,11 @@
   }
 }
 
+// 参加者セクション
+.day_schedule_participants_section {
+  position: relative;
+}
+
 .day_schedule_participants {
   width: fit-content;
   padding: 0.3rem 0.75rem;
@@ -330,6 +335,34 @@
   &.active {
     color: var.$color-primary;
     background: var.$color-tag;
+  }
+}
+
+.schedule_participants_list {
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 2.5rem;
+  padding: 0.5rem;
+  background-color: var.$color-white;
+  border: var.$border-gray;
+  border-radius: var.$radius;
+
+  .schedule_participant {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+
+    .avatar {
+      @include mix.avatar(21px)
+    }
+  }
+
+  .schedule_participant + .schedule_participant {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: var.$border-gray;
   }
 }
 

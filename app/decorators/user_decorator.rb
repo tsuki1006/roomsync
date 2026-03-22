@@ -8,4 +8,12 @@ module UserDecorator
       'default-avatar.png'
     end
   end
+
+  def display_name
+    if profile.present?
+      profile.name
+    else
+      '未設定ユーザー'
+    end
+  end
 end
