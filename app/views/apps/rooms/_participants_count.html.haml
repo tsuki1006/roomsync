@@ -9,6 +9,7 @@
     .hidden{ data: { participants_target: 'participantsList' } }
       %ul.schedule_participants_list
         - schedule.participants.each do |participant|
-          %li.schedule_participant
-            .avatar= image_tag participant.avatar_image
-            = participant.display_name
+          = link_to room_member_path(room_id: schedule.room, id: participant), class: 'schedule_participant_link' do
+            %li.schedule_participant
+              .avatar= image_tag participant.avatar_image
+              = participant.display_name

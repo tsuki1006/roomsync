@@ -5,7 +5,7 @@
         .app_icon R
         .app_logo RoomSync
 
-      - if controller_action?('rooms')
+      - if controller_action?('rooms') || controller_action?('members')
         .header_room_name
           %span 🏠
           %span.room_name= @room.name
@@ -17,6 +17,9 @@
 
     - elsif controller_action?('rooms', ['new', 'create']) || controller_action?('memberships', ['new', 'create'])
       = link_to '← 戻る', my_room_path, class: 'page_back'
+
+    - elsif controller_action?('members')
+      = link_to '← 戻る', :back, class: 'page_back'
 
     - else
       %nav

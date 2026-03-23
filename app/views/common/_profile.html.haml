@@ -1,0 +1,42 @@
+.white_container.profile
+  - if profile
+
+    - if user == current_user
+      = link_to 'プロフィール編集', edit_profile_path, class: 'profile_edit'
+
+    .profile_contents_1
+      .profile_avatar= image_tag profile.user.avatar_image
+      .profile_name_course
+        .profile_name= profile.name
+        .profile_course= I18n.t("enum.courses.#{profile.course}")
+
+    - if profile.comment.present? || profile.x_url.present? || profile.github_url.present?
+      .profile_contents_2
+        - if profile.comment.present?
+          .profile_comment
+            .profile_comment_point
+            %p= profile.comment
+        .profile_sns_logo
+          - if profile.x_url.present?
+            .sns_logo.x_logo
+              = link_to profile.x_url, target: '_blank' do
+                = image_tag 'x_logo.svg'
+          - if profile.github_url.present?
+            .sns_logo.github_logo
+              = link_to profile.github_url, target: '_blank' do
+                = image_tag 'github_logo.svg'
+
+    .profile_introduction
+      .label 自己紹介
+      %p.text= profile.introduction
+
+  -else
+    - if user == current_user
+      .profile_none
+        %div 🖊️プロフィールを作成してください
+        = link_to 'プロフィール作成', edit_profile_path, class: 'profile_create'
+
+    - else
+      .profile_contents_1
+        .profile_avatar= image_tag 'default-avatar.png'
+        .non_profile_user_name プロフィール未設定のユーザー

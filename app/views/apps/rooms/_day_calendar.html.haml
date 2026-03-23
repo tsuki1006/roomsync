@@ -14,8 +14,9 @@
             .day_schedule_status #{I18n.t("enum.status.#{schedule.status}")}
 
           .day_schedule_contents
-            .avatar
-              = image_tag schedule.creator.avatar_image
+            = link_to room_member_path(room_id: schedule.room, id: schedule.creator) do
+              .avatar
+                = image_tag schedule.creator.avatar_image
 
             - if schedule.creator.comment.present?
               %div{ data: { controller: 'comment' } }

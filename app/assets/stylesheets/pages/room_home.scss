@@ -395,7 +395,8 @@
     }
   }
 
-  .schedule_participant + .schedule_participant {
+  .schedule_participant_link + .schedule_participant_link {
+    display: block;
     margin-top: 0.5rem;
     padding-top: 0.5rem;
     border-top: var.$border-gray;

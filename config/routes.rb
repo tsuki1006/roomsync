@@ -28,6 +28,7 @@ Rails.application.routes.draw do
         resources :schedules do
           resource :participation, only: [ :create, :destroy ]
         end
+        resources :members, only: [:show]
       end
     end
   end
