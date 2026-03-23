@@ -5,6 +5,9 @@
         .app_icon R
         .app_logo RoomSync
 
+      .help_icon
+        = render 'documents/help'
+
       - if controller_action?('rooms') || controller_action?('members')
         .header_room_name
           %span 🏠

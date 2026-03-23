@@ -1,0 +1,55 @@
+%button.help_button ?
+
+.help_modal.hidden
+  .modal_overlay
+
+  .modal_content
+
+    %section.help_title
+      %h2 RoomSync の使い方
+      %button.modal_close ×
+
+    .help_content
+      %section.help_top
+        %h3
+          %span.help_content_icon 👋
+          はじめに
+        %p
+          RoomSyncはオンライン学習室での学習予定を共有し、同じタイミングで学ぶ仲間を見つけるアプリです。
+          カレンダーで予定を確認し、「一緒に参加」ボタンで気軽に仲間の予定に参加できます。
+
+      %section.help_section
+        %h3
+          %span.help_content_icon 📖
+          基本的な使い方
+
+        .help_steps
+          .help_step
+            .step_number 1
+            .step_content
+              %h4 ルームに参加する
+              %p
+                「所属ルーム」から新規ルームを作成するか、既存のルームに参加します。
+                ルーム名とルームキー（合言葉）が必要です。
+
+          .help_step
+            .step_number 2
+            .step_content
+              %h4 学習予定を作成する
+              %p
+                「+予定を作成」から学習予定を作成します。
+                開始時間・終了時間・学習スタイルを入力してください。
+
+          .help_step
+            .step_number 3
+            .step_content
+              %h4 仲間の予定に参加する
+              %p
+                カレンダーで他のルームメンバーの予定を確認し、「一緒に参加」ボタンをクリックします。
+                同じ時間に一緒に学習できます。
+
+      %section.help_footer
+        %p
+          その他の質問は作成者の
+          = link_to 'Xアカウント', 'https://x.com/Oa_oden'
+          までご連絡ください
