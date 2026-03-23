@@ -17,8 +17,6 @@ Rails.application.routes.draw do
 
   scope module: :apps do
 
-    resources :accounts, only: [:show]
-
     scope :rooms do
       resource :membership, only: [:new, :create]
     end
@@ -30,6 +28,7 @@ Rails.application.routes.draw do
         resources :schedules do
           resource :participation, only: [ :create, :destroy ]
         end
+        resources :members, only: [:show]
       end
     end
   end
