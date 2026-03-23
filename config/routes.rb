@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   scope module: :apps do
 
+    resources :accounts, only: [:show]
+
     scope :rooms do
       resource :membership, only: [:new, :create]
     end

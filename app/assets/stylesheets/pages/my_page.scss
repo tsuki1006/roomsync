@@ -2,166 +2,15 @@
 @use 'base/variables' as var;
 @use 'base/mixins' as mix;
 
-// コンテナ
-.profile {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  min-height: 100px;
-}
+// プロフィール
+// profile.scss参照
 
+// ナビゲーションタブ
 .mypage_tab {
   margin-top: 2rem;
   padding: 1.5rem 1.5rem 0;
 }
 
-.mypage_selected_contents {
-  margin-top: 0.5rem;
-  min-height: 400px;
-}
-
-// プロフィール
-.profile {
-  &_edit {
-    position: absolute;
-    right: 2rem;
-    @include mix.button_normal;
-  }
-
-  &_contents_1 {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    gap: 20px;
-  }
-
-  &_avatar {
-    @include mix.avatar(75px);
-  }
-
-  &_name_course {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    gap: 11px;
-  }
-
-  &_name {
-    font-size: 25px;
-    font-weight: bold;
-    color: var.$color-t-primary;
-  }
-
-  &_course {
-    width: fit-content;
-    padding: 0.35rem 0.75rem;
-    color: var.$color-primary;
-    font-size: 0.8rem;
-    font-weight: var.$font-medium;
-    border-radius: var.$radius;
-    background-color: var.$color-tag;
-  }
-
-  &_contents_2 {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 20px;
-  }
-
-  &_comment {
-    position: relative;
-    padding: .6rem 1rem;
-    font-size: 12px;
-    line-height: 1.5;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 25px;
-    box-shadow: 0 4px 3px rgba(0, 0, 0, .1);
-
-    p {
-      font-size: var.$font-md;
-      color: var.$color-t-secondary;
-      line-height: 1.6;
-    }
-
-    .profile_comment_point {
-      position: absolute;
-      top: -7px;
-      left: 24px;
-      width: 13px;
-      height: 13px;
-      background: white;
-      border: 1px solid #e0e0e0;
-      border-right: none;
-      border-bottom: none;
-      transform: rotate(45deg);
-    }
-  }
-
-  &_sns_logo {
-    margin-left: auto;
-    margin-right: 10px;
-    display: flex;
-    justify-content: start;
-    align-items: end;
-    gap: 10px;
-  }
-
-  .sns_logo {
-    width: 20px;
-    height: 20px;
-
-    img {
-      width: inherit;
-      height: 100%;
-    }
-  }
-
-  .x_logo {
-    width: 18px;
-    height: 18px;
-  }
-
-  &_introduction {
-    width: 100%;
-    padding: 1.25rem;
-    border-radius: var.$radius;
-    border: var.$border-purple;
-    background-color: var.$color-purple-thin;
-
-    .label {
-      color: var.$color-primary;
-      font-size: var.$font-base;
-      font-weight: var.$font-bold;
-      letter-spacing: 0.05px;
-    }
-
-    .text {
-      margin-top: 0.3rem;
-      color: var.$color-t-secondary;
-      font-size: var.$font-md;
-      line-height: 1.6;
-    }
-  }
-
-  .profile_none {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var.$color-t-secondary;
-    font-size: var.$font-md;
-    font-weight: var.$font-medium;
-
-    .profile_create {
-      @include mix.button_normal;
-    }
-  }
-}
-
-// ナビゲーションタブ
 .mypage_tab {
 
   ul {
@@ -208,6 +57,11 @@
 }
 
 // 選択コンテンツ
+.mypage_selected_contents {
+  margin-top: 0.5rem;
+  min-height: 400px;
+}
+
 .mypage_selected_contents {
   .content_box {
     padding: 1.25rem;
