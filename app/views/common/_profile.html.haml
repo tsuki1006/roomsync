@@ -1,6 +1,9 @@
 .white_container.profile
   - if profile
 
+    - if user == current_user
+      = link_to 'プロフィール編集', edit_profile_path, class: 'profile_edit'
+
     .profile_contents_1
       .profile_avatar= image_tag profile.user.avatar_image
       .profile_name_course
@@ -28,6 +31,12 @@
       %p.text= profile.introduction
 
   -else
-    .profile_contents_1
-      .profile_avatar= image_tag 'default-avatar.png'
-      .non_profile_user_name プロフィール未設定のユーザー
+    - if user == current_user
+      .profile_none
+        %div 🖊️プロフィールを作成してください
+        = link_to 'プロフィール作成', edit_profile_path, class: 'profile_create'
+
+    - else
+      .profile_contents_1
+        .profile_avatar= image_tag 'default-avatar.png'
+        .non_profile_user_name プロフィール未設定のユーザー
