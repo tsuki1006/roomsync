@@ -1,0 +1,150 @@
+// ユーザードキュメント
+@use 'base/variables' as var;
+
+.user_document_page_container {
+  padding: 2rem 0;
+}
+
+.user_document_container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.user_document_header {
+  border-bottom: 2px solid #f0f0f0;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: var.$font-extrabold;
+    color: var.$color-t-primary;
+    margin: 0;
+  }
+
+  .user_document_updated {
+    font-size: 0.9rem;
+    color: var.$color-t-gray-thin;
+    font-style: italic;
+    margin-top: 1.2rem;
+  }
+
+  p {
+    margin-top: 1.2rem;
+    font-size: var.$font-lg;
+    color: var.$color-t-gray;
+    line-height: 1.8;
+    padding-bottom: 2rem;
+  }
+}
+
+.user_document_content {
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: var.$font-bold;
+    color: var.$color-t-primary;
+    margin: 2.5rem 0 1rem 0;
+  }
+
+  h3 {
+    font-size: var.$font-lg;
+    font-weight: var.$font-semibold;
+    color: var.$color-t-secondary;
+    margin: 1.25rem 0 0.5rem 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: var.$color-t-gray;
+    line-height: 1.7;
+    margin: 0.8rem 0;
+  }
+
+  ul {
+    list-style: disc;
+  }
+
+  ol {
+    list-style: auto;
+  }
+
+  ul, ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+
+    li {
+      font-size: 0.95rem;
+      color: var.$color-t-gray;
+      line-height: 1.7;
+      margin: 0.5rem 0;
+    }
+  }
+
+  .strong {
+    color: var.$color-t-primary;
+    font-weight: var.$font-semibold;
+  }
+
+  a {
+    color: var.$color-primary;
+    text-decoration: none;
+    font-weight: var.$font-semibold;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.user_document_enactment_date {
+  margin-top: 2rem;
+  margin-bottom: -2rem;
+  text-align: right;
+  padding-right: 1rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.user_document_contact {
+  background: var.$color-purple-thin;
+  border: var.$border-purple;
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 3rem 0 1.5rem 0;
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: var.$font-bold;
+    color: var.$color-t-primary;
+    margin: 0 0 1rem 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .contact_info {
+    margin-top: 1rem;
+  }
+}
+
+.user_document_footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid #f0f0f0;
+
+  p {
+    color: var.$color-t-gray-thin;
+    font-size: 0.8rem;
+    margin: 0;
+  }
+
+  .strong {
+    font-size: 0.9rem;
+    font-weight: var.$font-semibold;
+    margin-bottom: 0.5rem;
+  }
+}

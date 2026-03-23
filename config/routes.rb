@@ -15,6 +15,11 @@ Rails.application.routes.draw do
 
   root to: 'home#show'
 
+  scope module: :documents do
+    resource :privacy_policy, only: [:show]
+    resource :terms_of_service, only: [:show]
+  end
+
   scope module: :apps do
 
     scope :rooms do

@@ -21,6 +21,9 @@
     - if user_signed_in?
       = render 'layouts/header'
 
+    - elsif controller_action?('privacy_policies') || controller_action?('terms_of_services')
+      = render 'layouts/documents_header'
+
     %main
       #flash
         = render 'layouts/flash'
