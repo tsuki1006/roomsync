@@ -29,4 +29,5 @@
         = render 'layouts/flash'
       = yield
 
-    = render 'layouts/footer'
+    - if user_signed_in?
+      = render 'layouts/footer'
