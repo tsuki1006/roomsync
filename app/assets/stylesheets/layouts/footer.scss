@@ -1,0 +1,44 @@
+// footer
+@use 'base/variables' as var;
+
+.footer {
+  min-width: 100vw;
+  background: var.$color-white;
+  border-top: var.$border-default;
+  padding: 1.5rem 2rem;
+}
+
+.footer_container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer_copyright {
+  font-size: 0.85rem;
+  color: var.$color-t-gray-thin;
+}
+
+.footer_quick_links {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+
+  a {
+    font-size: 0.85rem;
+    color: var.$color-t-gray;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var.$color-primary;
+    }
+  }
+
+  .divider {
+    color: #ddd;
+  }
+}
