@@ -23,7 +23,6 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
   }
 
   .logo {
@@ -34,6 +33,7 @@ header {
   }
 
   .logout {
+    margin-left: 1.5rem;
     display: block;
     padding: 0.5rem 0.8rem;
     font-size: 13px;

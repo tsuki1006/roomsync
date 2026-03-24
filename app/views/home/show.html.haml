@@ -10,6 +10,14 @@
       .line
     = link_to 'ログイン', new_user_session_path, class: 'sign_in_button'
 
+    .document_agreement
+      %p
+        アカウント作成により、
+        = link_to '利用規約', terms_of_service_path
+        および
+        = link_to 'プライバシーポリシー', privacy_policy_path
+        に同意したものとみなします
+
   .tips.app_top_points
     %ul
       %li

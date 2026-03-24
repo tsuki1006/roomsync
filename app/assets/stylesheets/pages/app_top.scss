@@ -42,13 +42,13 @@
 
 .app_top_action {
   margin-top: 2.5rem;
-  padding: 2.5rem;
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 
   .sign_up_button {
     @include mix.button_primary;
@@ -73,7 +73,6 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 0.5rem 0;
 
     .line {
       flex: 1;
