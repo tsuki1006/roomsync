@@ -25,3 +25,11 @@
 
         .form_action
           = f.submit 'アカウントを作成', class: 'form_button authentication_form_button'
+
+        .document_agreement.authentication_form_document_agreement
+          %p
+            アカウント作成により、
+            = link_to '利用規約', terms_of_service_path
+            および
+            = link_to 'プライバシーポリシー', privacy_policy_path
+            に同意したものとみなします

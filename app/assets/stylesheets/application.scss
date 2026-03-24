@@ -16,18 +16,19 @@
 @use 'components/form';
 @use 'components/tips';
 @use 'components/schedule';
+@use 'components/document_agreement';
 
 // layouts
 @use 'layouts/header';
 
 // pages
 @use 'pages/app_top';
-@use 'pages/authentication.scss';
+@use 'pages/authentication';
 @use 'pages/profile';
 @use 'pages/my_page';
 @use 'pages/my_room';
 @use 'pages/room_form';
 @use 'pages/room_home';
 @use 'pages/schedule_form';
-@use 'pages/document_help.scss';
-@use 'pages/document_page.scss';
+@use 'pages/document_help';
+@use 'pages/document_page';

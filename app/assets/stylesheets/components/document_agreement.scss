@@ -1,0 +1,15 @@
+// 規約の同意
+@use 'base/variables' as var;
+
+.document_agreement {
+  p {
+    color: var.$color-t-gray-thin;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  a {
+    color: var.$color-primary;
+    font-weight: var.$font-semibold;
+  }
+}
