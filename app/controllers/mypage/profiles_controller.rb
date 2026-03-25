@@ -2,7 +2,6 @@ class Mypage::ProfilesController < Mypage::ApplicationController
   before_action :set_profile, only: [:show]
 
   def show
-    @user = current_user
   end
 
   def edit
