@@ -185,6 +185,29 @@ erDiagram
 - simple_calendarで直感的な予定管理を実現
 - 統一されたデザインシステムで一貫性のあるUI
 
+<details><summary>デモ動画</summary>
+<p>
+
+|カレンダー|
+|---|
+|![ルームカレンダーのデモ](docs/images/calendar-demo.gif)|
+
+|予定参加|
+|---|
+|![予定参加機能のデモ](docs/images/participation-demo.gif)|
+
+|つぶやき・参加者表示|
+|---|
+|![つぶやき・参加者表示のデモ](docs/images/select-schedule-demo.gif)|
+
+|ユーザーヘルプ|
+|---|
+|![ユーザーヘルプのデモ](docs/images/help-demo.gif)|
+
+</p>
+</details>
+
+
 #### 開発プロセス
 - feat:, fix: などのプレフィックスを用い、追いやすいコミット履歴を維持
 - 概要・変更内容を明確に記載し、読みやすいPRを意識
