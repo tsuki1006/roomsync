@@ -60,3 +60,8 @@
   |<img src="../images/schedule-new.png" width="400px" alt="予定作成ページ">|<img src="../images/schedule-edit.png" width="400px" alt="予定編集ページ">|
 
 </div>|
+
+## ユーザーヘルプ
+<div align="center">
+  <img src="../images/help.png" width="800px" alt="アプリTOPページ">
+</div>
