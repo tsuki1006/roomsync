@@ -20,7 +20,7 @@ profile_data = [
 ]
 
 6.times do |i|
-  dummy = User.find_or_create_by!(email: "#{i + 1}@example.com") do |user|
+  dummy = User.find_or_create_by!(email: "dummy_#{i + 1}@example.com") do |user|
     user.password = ENV['DUMMY_USER_PASSWORD']
   end
   dummy_users << dummy
