@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, skip: 'registrations'
   devise_scope :user do
+    get  'users/sign_up',       to: 'devise/registrations#new', as: :new_user_registration
+    post 'users',               to: 'devise/registrations#create', as: :user_registration
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
