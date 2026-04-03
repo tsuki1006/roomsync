@@ -7,4 +7,10 @@ class ApplicationController < ActionController::Base
     profile_path
   end
 
+  # ゲストユーザーの機能制限
+  def guest_user_limitation(path)
+    if user_signed_in? && current_user.email == 'guest@example.com'
+      redirect_to path, alert: 'ゲストユーザーではこの機能は利用できません'
+    end
+  end
 end

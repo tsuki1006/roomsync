@@ -1,4 +1,6 @@
 class Apps::MembershipsController < Apps::ApplicationController
+  before_action ->{ guest_user_limitation(new_membership_path) }, only: [:create]
+
   def new
     @room = Room.new
   end
