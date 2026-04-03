@@ -4,19 +4,16 @@
 
   .white_container.app_top_action
     = link_to '新規登録', new_user_registration_path, class: 'sign_up_button'
+    = link_to 'ログイン', new_user_session_path, class: 'sign_in_button'
+
     .or_line
       .line
       %span.or または
       .line
-    = link_to 'ログイン', new_user_session_path, class: 'sign_in_button'
 
-    .document_agreement
-      %p
-        アカウント作成により、
-        = link_to '利用規約', terms_of_service_path
-        および
-        = link_to 'プライバシーポリシー', privacy_policy_path
-        に同意したものとみなします
+    .guest-login-section
+      = link_to 'ゲストとして利用する', users_guest_sign_in_path, data: { turbo_method: :post }, class: 'guest_login'
+      %p 登録なしでアプリの使用感を体験できます
 
   .tips.app_top_points
     %ul

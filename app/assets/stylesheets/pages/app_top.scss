@@ -52,20 +52,20 @@
 
   .sign_up_button {
     @include mix.button_primary;
-    width: 100%;
-    padding: 1rem;
-    font-size: var.$font-lg;
     font-weight: var.$font-bold;
   }
 
   .sign_in_button {
     @include mix.button_normal;
-    width: 100%;
-    padding: 1rem;
     border: 1.5px solid var.$color-primary;
     color: var.$color-primary;
-    font-size: var.$font-lg;
     font-weight: var.$font-bold;
+  }
+
+  .sign_up_button, .sign_in_button {
+    width: 100%;
+    padding: 1rem;
+    font-size: var.$font-lg;
   }
 
   .or_line {
@@ -84,6 +84,26 @@
       font-size: 0.85rem;
       color: var.$color-t-gray-thin;
       font-weight: var.$font-medium;
+    }
+  }
+
+  .guest-login-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+
+    .guest_login {
+      font-size: 14px;
+      color: var.$color-primary;
+      border-bottom: 1px solid var.$color-primary;
+      padding-bottom: 0.1rem;
+      font-weight: var.$font-semibold;
+    }
+
+    p {
+      color: var.$color-t-gray-thin;
+      font-size: var.$font-sm;
     }
   }
 }
