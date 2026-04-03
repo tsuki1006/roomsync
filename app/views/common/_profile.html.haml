@@ -28,7 +28,7 @@
 
     .profile_introduction
       .label 自己紹介
-      %p.text= profile.introduction
+      .text= simple_format(h(profile.introduction))
 
   -else
     - if user == current_user

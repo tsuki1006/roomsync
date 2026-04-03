@@ -53,7 +53,7 @@ end
 Profile.find_or_create_by!(user: guest) do |p|
   p.name = 'ゲストユーザー'
   p.course = 'other'
-  p.introduction = 'ゲストユーザーとして一通りの機能がお試しいただけます😄 ※プロフィールの編集・ルームの参加はできません'
+  p.introduction = "ゲストユーザーとして一通りの機能をお試しいただけます😄\n※プロフィールの編集・ルームの参加はできません\n※データはログインのたびに初期化されます"
   p.comment = 'RoomSyncをお試しいただきありがとうございます✨'
   p.avatar.attach( io: File.open('lib/seeds/images/avatar_guest.png'), filename: 'avatar_guest' )
 end
