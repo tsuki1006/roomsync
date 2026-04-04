@@ -1,5 +1,6 @@
 class Mypage::ProfilesController < Mypage::ApplicationController
   before_action :set_profile, only: [:show]
+  before_action ->{ guest_user_limitation(edit_profile_path) }, only: [:update]
 
   def show
   end
