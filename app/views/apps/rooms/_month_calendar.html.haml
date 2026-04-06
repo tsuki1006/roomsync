@@ -1,6 +1,6 @@
-= month_calendar events: schedules do |date, schedules|
+= month_calendar events: schedules, start_date_param: :about do |date, schedules|
 
-  = link_to url_for(start_date: date, about: date), data: { turbo_stream: true } do
+  = link_to url_for(about: date), data: { turbo_stream: true } do
     = date.day
     - count = todays_schedule_count(schedules, date)
     - if count.present?

@@ -25,6 +25,6 @@ module SchedulesHelper
 
   def schedule_form_cancel_path(room, schedule)
     date = schedule.new_record? ? params[:date] : schedule.start_time.strftime('%Y-%m-%d')
-    room_path(room, start_date: date, about: date)
+    room_path(room, about: date)
   end
 end
