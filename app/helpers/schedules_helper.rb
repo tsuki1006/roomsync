@@ -22,4 +22,9 @@ module SchedulesHelper
   def end_time_auto_fill(schedule)
     schedule.new_record? ? "#{params[:date]}T00:00" : schedule.end_time
   end
+
+  def schedule_form_cancel_path(room, schedule)
+    date = schedule.new_record? ? params[:date] : schedule.start_time.strftime('%Y-%m-%d')
+    room_path(room, start_date: date, about: date)
+  end
 end

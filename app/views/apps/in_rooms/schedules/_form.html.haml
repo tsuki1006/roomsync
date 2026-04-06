@@ -33,7 +33,7 @@
         %div= f.text_area :comment, class: 'form_textarea', placeholder: '例：学習内容など'
 
     .form_action.schedule_form_button
-      = link_to 'キャンセル', room_path(room), class: 'schedule_form_button_cancel'
+      = link_to 'キャンセル', schedule_form_cancel_path(room, schedule), class: 'schedule_form_button_cancel'
       - button_label = schedule.new_record? ? '予定を作成する' : '予定を更新する'
       = f.submit button_label, class: 'form_button'
 
