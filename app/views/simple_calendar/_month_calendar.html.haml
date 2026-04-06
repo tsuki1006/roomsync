@@ -6,7 +6,7 @@
       = link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view, data: { turbo_stream: true }, class: 'month_calendar_button'
       = link_to '今日', url_for(start_date: Time.current.to_date, about: Time.current.to_date), data: { turbo_stream: true }, class: 'month_calendar_button back_today'
 
-    = link_to '+ 予定を作成', new_room_schedule_path(@room), class: 'new_schedule_button'
+    = link_to '+ 予定を作成', new_room_schedule_path(@room, date: params[:about]), class: 'new_schedule_button'
 
   %table.table.table-striped
     %thead
