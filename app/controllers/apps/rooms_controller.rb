@@ -2,10 +2,14 @@ class Apps::RoomsController < Apps::ApplicationController
   before_action :set_room, only: [ :show ]
 
   def show
-    @schedules = @room.schedules.includes(
-      participants: { profile: :avatar_attachment },
-      creator: { profile: :avatar_attachment }
-    )
+    @schedules = @room.schedules
+
+    pickup_date = Date.parse( params[:about] )
+    @pickup_schedules = @schedules.where(start_time: pickup_date.all_day)
+                                  .includes(
+                                    creator: { profile: { avatar_attachment: :blob } },
+                                    participants: { profile: { avatar_attachment: :blob } }
+                                  )
   end
 
   def new
