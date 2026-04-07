@@ -3,6 +3,8 @@ class Mypage::ProfilesController < Mypage::ApplicationController
   before_action ->{ guest_user_limitation(edit_profile_path) }, only: [:update]
 
   def show
+    @created_schedules = current_user.created_schedules.active
+    @participated_schedules = current_user.participated_schedules.active
   end
 
   def edit

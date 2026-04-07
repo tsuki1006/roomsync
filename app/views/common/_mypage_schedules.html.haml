@@ -15,8 +15,8 @@
                 .schedule_date= schedule.display_date
 
               .schedule_creator_participants
-                - count = schedule.participants.count
-                - if schedule.creator == current_user
+                - count = schedule.participation_relationships.size
+                - if controller_action?('created_schedules', action = 'index')
                   .schedule_participants{ class: count > 0 ? 'active' : nil }
                     .schedule_participants_icon 👥
                     %div= "#{count}人参加中"
@@ -30,7 +30,7 @@
                 .schedule_room= schedule.room.name
 
           .schedule_action
-            - if schedule.creator == current_user
+            - if controller_action?('created_schedules', action = 'index')
               = link_to '編集', edit_room_schedule_path(room_id: schedule.room, id: schedule), class: 'schedule_edit'
 
     - else
