@@ -7,11 +7,11 @@
       %li.mypage_tab_list{class: "#{add_active_class(profile_created_schedules_path)}"}
         = link_to profile_created_schedules_path do
           %span 作成した予定
-          - if (count = active_created_schedule_count(current_user))
-            %span.mypage_tab_count= count
+          - if active_created_schedules.present?
+            %span.mypage_tab_count= active_created_schedules.size
 
       %li.mypage_tab_list{class: "#{add_active_class(profile_participated_schedules_path)}"}
         = link_to profile_participated_schedules_path do
           %span 参加した予定
-          - if (count = active_participated_schedule_count(current_user))
-            %span.mypage_tab_count= count
+          - if active_participated_schedules.present?
+            %span.mypage_tab_count= active_participated_schedules.size
