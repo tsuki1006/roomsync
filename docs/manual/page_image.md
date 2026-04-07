@@ -21,6 +21,10 @@
   |:---:|
   |<img src="../images/mypage-1.png" width="800px" alt="マイページ">|
 
+  |マイページ/ゲストユーザー|
+  |:---:|
+  |<img src="../images/mypage-guest.png" width="800px" alt="マイページ（ゲストログイン）">|
+
   |マイページ/作成した予定一覧|
   |:---:|
   |<img src="../images/mypage-2.png" width="800px" alt="作成した予定一覧ページ">|
