@@ -1,5 +1,5 @@
 .day_schedule_participants_section{ id: "participants_count_#{schedule.id}", data: { controller: 'participants' } }
-  - count = schedule.participants.count
+  - count = schedule.participants.size
 
   .schedule_participants.day_schedule_participants{ class: count > 0 ? 'active' : nil , data: { action: 'click->participants#displayParticipants' }}
     .schedule_participants_icon 👥

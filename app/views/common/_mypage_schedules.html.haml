@@ -4,7 +4,7 @@
     - if schedules.present?
       - schedules.each do |schedule|
         .content_box.schedule
-          = link_to room_path(id: schedule.room, start_date: schedule.start_time.to_date, about: schedule.start_time.to_date), class: 'schedule_card_link' do
+          = link_to room_path(id: schedule.room, about: schedule.start_time.to_date), class: 'schedule_card_link' do
             .schedule_content
               .schedule_time_date
                 .schedule_time

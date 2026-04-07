@@ -20,7 +20,7 @@
             %li
               .room_count_label 予定
               .room_count= "#{room.schedules.active.count}件"
-          = link_to "入室する →", room_path(room), class: 'room_in_button'
+          = link_to "入室する →", room_path(room, about: Time.current.strftime("%Y-%m-%d")), class: 'room_in_button'
 
 - else
   .no_room_content

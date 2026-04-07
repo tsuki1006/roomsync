@@ -85,6 +85,10 @@ class Schedule < ApplicationRecord
 
   # メソッド
   def active?
-    Schedule.active.exists?(id: self.id)
+    self.end_time > Time.current
+  end
+
+  def participant?(user)
+    participants.include?(user)
   end
 end

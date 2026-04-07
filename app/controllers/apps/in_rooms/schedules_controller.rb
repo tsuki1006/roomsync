@@ -10,7 +10,7 @@ class Apps::InRooms::SchedulesController < Apps::InRooms::ApplicationController
     @schedule.assign_attributes(schedule_params)
 
     if @schedule.save
-      redirect_to room_path(format: :html, id: @room, start_date: @schedule.start_time.to_date, about: @schedule.start_time.to_date), notice: '予定を作成しました'
+      redirect_to room_path(format: :html, id: @room, about: @schedule.start_time.to_date), notice: '予定を作成しました'
     else
       flash.now[:error] = '予定の作成に失敗しました'
       render :new, status: :unprocessable_entity
@@ -24,7 +24,7 @@ class Apps::InRooms::SchedulesController < Apps::InRooms::ApplicationController
   def update
     @schedule = current_user.created_schedules.find(params[:id])
     if @schedule.update(schedule_params)
-      redirect_to room_path(format: :html, id: @room, start_date: @schedule.start_time.to_date, about: @schedule.start_time.to_date), notice: '予定を更新しました'
+      redirect_to room_path(format: :html, id: @room, about: @schedule.start_time.to_date), notice: '予定を更新しました'
     else
       flash.now[:error] = '予定の更新に失敗しました'
       render :edit, status: :unprocessable_entity

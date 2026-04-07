@@ -8,6 +8,10 @@ Rails.application.configure do
     Bullet.console       = true
     Bullet.rails_logger  = true
     Bullet.add_footer    = true
+
+    Bullet.add_safelist type: :unused_eager_loading, class_name: 'ActiveStorage::Attachment', association: :blob
+    Bullet.add_safelist type: :unused_eager_loading, class_name: 'Schedule', association: :participants
+    Bullet.add_safelist type: :unused_eager_loading, class_name: 'Schedule', association: :participation_relationships
   end
 
   # Settings specified here will take precedence over those in config/application.rb.
