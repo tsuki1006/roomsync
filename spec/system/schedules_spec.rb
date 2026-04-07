@@ -4,11 +4,12 @@ RSpec.describe 'Schedules', type: :system, display: true do
 
   context 'ユーザーがログイン後スケジュールを作成すると' do
     let(:user) { create(:user, :with_profile) }
-    let(:room) { create( :room, creator: user) }
+    let!(:room) { create( :room, creator: user) }
 
     before do
       sign_in user
-      visit room_path(room)
+      visit my_room_path
+      click_on '入室する →'
       click_on '予定を作成'
 
       # スケジュール作成
