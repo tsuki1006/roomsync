@@ -154,4 +154,5 @@
 .form_button {
   @include mix.button_primary;
   width: 180px;
+  cursor: pointer;
 }
