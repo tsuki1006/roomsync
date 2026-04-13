@@ -34,7 +34,7 @@ class Apps::InRooms::SchedulesController < Apps::InRooms::ApplicationController
   def destroy
     schedule = current_user.created_schedules.find(params[:id])
     schedule.destroy!
-    redirect_to room_path(format: :html, id:@room), notice: '予定を削除しました'
+    redirect_to room_path(format: :html, id:@room, about: Time.current.strftime('%Y-%m-%d')), notice: '予定を削除しました'
   end
 
   private
