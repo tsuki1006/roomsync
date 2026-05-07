@@ -4,7 +4,7 @@ class Apps::RoomsController < Apps::ApplicationController
   def show
     @schedules = @room.schedules
 
-    pickup_date = Date.parse( params[:about] )
+    pickup_date = params[:about].present? ? Date.parse( params[:about] ) : Time.zone.today
     @pickup_schedules = @schedules.where(start_time: pickup_date.all_day)
                                   .includes(
                                     creator: { profile: { avatar_attachment: :blob } },
